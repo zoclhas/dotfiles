@@ -34,4 +34,19 @@ vim.keymap.set('i', '<C-b>', '<Home>', { desc = 'Go to start of line' })
 
 vim.keymap.set('i', '<C-v>', '<CR><ESC>O', { desc = 'Place cursor inbetween the tags on a new line' })
 
+-- Move Lines
+vim.keymap.set('n', '<S-n>', '<cmd>m .+1<cr>==', { desc = 'Move down' })
+vim.keymap.set('n', '<S-m>', '<cmd>m .-2<cr>==', { desc = 'Move up' })
+vim.keymap.set('i', '<S-n>', '<esc><cmd>m .+1<cr>==gi', { desc = 'Move down' })
+vim.keymap.set('i', '<S-m>', '<esc><cmd>m .-2<cr>==gi', { desc = 'Move up' })
+vim.keymap.set('v', '<S-n>', ":m '>+1<cr>gv=gv", { desc = 'Move down' })
+vim.keymap.set('v', '<S-m>', ":m '<-2<cr>gv=gv", { desc = 'Move up' })
+
+-- restore the session for the current directory
+vim.api.nvim_set_keymap('n', '<leader>qs', [[<cmd>lua require("persistence").load()<cr>]], {})
+-- restore the last session
+vim.api.nvim_set_keymap('n', '<leader>ql', [[<cmd>lua require("persistence").load({ last = true })<cr>]], {})
+-- stop Persistence => session won't be saved on exit
+vim.api.nvim_set_keymap('n', '<leader>qd', [[<cmd>lua require("persistence").stop()<cr>]], {})
+
 return {}
