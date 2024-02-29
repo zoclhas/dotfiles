@@ -298,6 +298,7 @@ return {
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format lua code
         'prettier',
+        'python-lsp-server',
         'black',
         'yaml-language-server',
         'typescript-language-server',

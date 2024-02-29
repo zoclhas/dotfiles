@@ -53,6 +53,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 vim.opt.shiftround = true
+vim.opt.shiftwidth = 2
 vim.opt.termguicolors = true
 
 -- [[ Basic Keymaps ]]
