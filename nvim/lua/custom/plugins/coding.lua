@@ -1,9 +1,40 @@
+local kind_icons = {
+  Text = '',
+  Method = '󰆧',
+  Function = '󰊕',
+  Constructor = '',
+  Field = '󰇽',
+  Variable = '󰂡',
+  Class = '󰠱',
+  Interface = '',
+  Module = '',
+  Property = '󰜢',
+  Unit = '',
+  Value = '󰎠',
+  Enum = '',
+  Keyword = '󰌋',
+  Snippet = '',
+  Color = '󰏘',
+  File = '󰈙',
+  Reference = '',
+  Folder = '󰉋',
+  EnumMember = '',
+  Constant = '󰏿',
+  Struct = '',
+  Event = '',
+  Operator = '󰆕',
+  TypeParameter = '󰅲',
+}
+
 return {
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
+      {
+        'js-everts/cmp-tailwind-colors',
+      },
       {
         'L3MON4D3/LuaSnip',
         build = (function()
@@ -55,6 +86,18 @@ return {
           },
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
+
+        formatting = {
+          fields = { 'kind', 'abbr', 'menu' },
+          format = function(entry, item)
+            item.menu = item.kind
+            item = require('cmp-tailwind-colors').format(entry, item)
+            if kind_icons[item.kind] then
+              item.kind = kind_icons[item.kind] .. ' '
+            end
+            return item
+          end,
+        },
 
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
@@ -259,7 +302,6 @@ return {
         'yaml-language-server',
         'typescript-language-server',
         'tailwindcss-language-server',
-        'rustywind',
         'svelte-language-server',
         'rust-analyzer',
         'ruff-lsp',
@@ -285,6 +327,34 @@ return {
               capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {}),
             }
           end,
+        },
+      }
+    end,
+  },
+
+  {
+    'norcalli/nvim-colorizer.lua',
+    opts = function()
+      require('colorizer').setup {
+        filetypes = { '*' },
+        user_default_options = {
+          RGB = true, -- #RGB hex codes
+          RRGGBB = true, -- #RRGGBB hex codes
+          names = true, -- "Name" codes like Blue or blue
+          RRGGBBAA = true, -- #RRGGBBAA hex codes
+          AARRGGBB = true, -- 0xAARRGGBB hex codes
+          rgb_fn = true, -- CSS rgb() and rgba() functions
+          hsl_fn = true, -- CSS hsl() and hsla() functions
+          css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+          css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+          -- Available modes for `mode`: foreground, background,  virtualtext
+          mode = 'background', -- Set the display mode.
+          -- Available methods are false / true / "normal" / "lsp" / "both"
+          -- True is same as normal
+          tailwind = true, -- Enable tailwind colors
+          -- parsers can contain values used in |user_default_options|
+          sass = { enable = true, parsers = { 'css' } }, -- Enable sass colors
+          virtualtext = '■',
         },
       }
     end,

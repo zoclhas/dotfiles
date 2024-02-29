@@ -1,6 +1,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.lsp.inlay_hint.enable = true
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -112,6 +114,7 @@ require('lazy').setup {
 
   { import = 'custom' },
   { import = 'custom/plugins' },
+  { import = 'custom/plugins/lang' },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following lua:
