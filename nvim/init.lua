@@ -115,6 +115,8 @@ require('lazy').setup {
   { import = 'custom' },
   { import = 'custom/plugins' },
   { import = 'custom/plugins/lang' },
+  -- { import = 'kickstart' },
+  -- { import = 'kickstart/plugins' },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following lua:
