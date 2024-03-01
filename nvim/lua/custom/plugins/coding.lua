@@ -150,6 +150,7 @@ return {
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    dependencies = {},
     build = ':TSUpdate',
     config = function()
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -176,9 +177,29 @@ return {
         highlight = { enable = true },
         indent = { enable = true },
       }
-      require('nvim-treesitter.configs').setup {
-        autotag = {
-          enable = true,
+    end,
+  },
+  {
+    'windwp/nvim-ts-autotag',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    event = 'VeryLazy',
+    config = function()
+      require('nvim-ts-autotag').setup {
+        filetypes = {
+          'html',
+          'javascript',
+          'typescript',
+          'javascriptreact',
+          'typescriptreact',
+          'svelte',
+          'vue',
+          'tsx',
+          'jsx',
+          'rescript',
+          'xml',
+          'php',
+          'markdown',
+          'rust',
         },
       }
     end,
