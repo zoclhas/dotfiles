@@ -2,4 +2,4 @@
 
 ## Neovim
 
-![](/neovim.png)
+![](/.github/neovim.png)
