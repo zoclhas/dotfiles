@@ -156,7 +156,21 @@ return {
 
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup {
-        ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'typescript', 'python', 'javascript', 'rust' },
+        ensure_installed = {
+          'bash',
+          'c',
+          'html',
+          'lua',
+          'markdown',
+          'vim',
+          'vimdoc',
+          'typescript',
+          'python',
+          'javascript',
+          'rust',
+          'markdown',
+          'markdown_inline',
+        },
         -- Autoinstall languages that are not installed
         auto_install = true,
         highlight = { enable = true },
@@ -259,6 +273,7 @@ return {
       local servers = {
         --
 
+        marksman = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes { ...},
@@ -311,6 +326,8 @@ return {
         'dockerfile-language-server',
         'djlint',
         'css-lsp',
+        'marksman',
+        'markdownlint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
