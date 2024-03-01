@@ -1,3 +1,5 @@
+local Util = require 'util'
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
@@ -50,15 +52,14 @@ vim.api.nvim_set_keymap('n', '<leader>ql', [[<cmd>lua require("persistence").loa
 vim.api.nvim_set_keymap('n', '<leader>qd', [[<cmd>lua require("persistence").stop()<cr>]], {})
 
 -- Terminal
-local Util = require 'util'
 local lazyterm = function()
   Util.terminal(nil, { cwd = Util.root() })
 end
-vim.keymap.set('n', '<leader>ft', lazyterm, { desc = 'Terminal (root dir)' })
-vim.keymap.set('n', '<leader>fT', function()
+vim.keymap.set('n', '<C-i>', lazyterm, { desc = 'Terminal (cwd dir)' })
+vim.keymap.set('n', '<C-u>', function()
   Util.terminal()
 end, { desc = 'Terminal (cwd)' })
-vim.keymap.set('n', '<c-/>', lazyterm, { desc = 'Terminal (root dir)' })
-vim.keymap.set('n', '<c-_>', lazyterm, { desc = 'which_key_ignore' })
+-- vim.keymap.set('n', '<c-/>', lazyterm, { desc = 'Terminal (root dir)' })
+vim.keymap.set('n', '<C-\\>', lazyterm, { desc = 'which_key_ignore' })
 
 return {}
