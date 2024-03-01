@@ -32,7 +32,7 @@ return {
       },
       setup = {
         ruff_lsp = function()
-          require('lazyvim.util').lsp.on_attach(function(client, _)
+          require('custom.util').lsp.on_attach(function(client, _)
             if client.name == 'ruff_lsp' then
               -- Disable hover in favor of Pyright
               client.server_capabilities.hoverProvider = false
@@ -57,22 +57,22 @@ return {
       require('dap-python').setup(path .. '/venv/bin/python')
     end,
   },
-  {
-    'linux-cultist/venv-selector.nvim',
-    cmd = 'VenvSelect',
-    opts = function(_, opts)
-      if require('lazyvim.util').has 'nvim-dap-python' then
-        opts.dap_enabled = true
-      end
-      return vim.tbl_deep_extend('force', opts, {
-        name = {
-          'venv',
-          '.venv',
-          'env',
-          '.env',
-        },
-      })
-    end,
-    keys = { { '<leader>cv', '<cmd>:VenvSelect<cr>', desc = 'Select VirtualEnv' } },
-  },
+  -- {
+  --   'linux-cultist/venv-selector.nvim',
+  --   cmd = 'VenvSelect',
+  --   opts = function(_, opts)
+  --     if require('lazy.util').has 'nvim-dap-python' then
+  --       opts.dap_enabled = true
+  --     end
+  --     return vim.tbl_deep_extend('force', opts, {
+  --       name = {
+  --         'venv',
+  --         '.venv',
+  --         'env',
+  --         '.env',
+  --       },
+  --     })
+  --   end,
+  --   keys = { { '<leader>cv', '<cmd>:VenvSelect<cr>', desc = 'Select VirtualEnv' } },
+  -- },
 }
