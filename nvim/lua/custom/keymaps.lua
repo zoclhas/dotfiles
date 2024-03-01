@@ -50,15 +50,15 @@ vim.api.nvim_set_keymap('n', '<leader>ql', [[<cmd>lua require("persistence").loa
 vim.api.nvim_set_keymap('n', '<leader>qd', [[<cmd>lua require("persistence").stop()<cr>]], {})
 
 -- Terminal
--- local Util = require 'custom.util'
--- local lazyterm = function()
---   Util.terminal(nil, { cwd = Util.root() })
--- end
--- vim.keymap.set('n', '<leader>ft', lazyterm, { desc = 'Terminal (root dir)' })
--- vim.keymap.set('n', '<leader>fT', function()
---   Util.terminal()
--- end, { desc = 'Terminal (cwd)' })
--- vim.keymap.set('n', '<c-/>', lazyterm, { desc = 'Terminal (root dir)' })
--- vim.keymap.set('n', '<c-_>', lazyterm, { desc = 'which_key_ignore' })
+local Util = require 'util'
+local lazyterm = function()
+  Util.terminal(nil, { cwd = Util.root() })
+end
+vim.keymap.set('n', '<leader>ft', lazyterm, { desc = 'Terminal (root dir)' })
+vim.keymap.set('n', '<leader>fT', function()
+  Util.terminal()
+end, { desc = 'Terminal (cwd)' })
+vim.keymap.set('n', '<c-/>', lazyterm, { desc = 'Terminal (root dir)' })
+vim.keymap.set('n', '<c-_>', lazyterm, { desc = 'which_key_ignore' })
 
 return {}

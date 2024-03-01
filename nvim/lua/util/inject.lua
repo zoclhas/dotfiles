@@ -1,4 +1,4 @@
----@class custom.util.inject
+---@class util.inject
 local M = {}
 
 ---@generic A: any

@@ -1,6 +1,6 @@
-local Util = require("custom.util")
+local Util = require("util")
 
----@class custom.util.toggle
+---@class util.toggle
 local M = {}
 
 ---@param silent boolean?

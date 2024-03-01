@@ -1,6 +1,6 @@
-local Util = require("custom.util")
+local Util = require("util")
 
----@class custom.util.lsp
+---@class util.lsp
 local M = {}
 
 ---@alias lsp.Client.filter {id?: number, bufnr?: number, name?: string, method?: string, filter?:fun(client: lsp.Client):boolean}
@@ -109,7 +109,7 @@ end
 
 ---@param opts? lsp.Client.format
 function M.format(opts)
-  opts = vim.tbl_deep_extend("force", {}, opts or {}, require("custom.util").opts("nvim-lspconfig").format or {})
+  opts = vim.tbl_deep_extend("force", {}, opts or {}, require("util").opts("nvim-lspconfig").format or {})
   local ok, conform = pcall(require, "conform")
   -- use conform for formatting with LSP when available,
   -- since it has better format diffing
