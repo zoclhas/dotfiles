@@ -102,7 +102,8 @@ require('lazy').setup {
   { import = 'custom' },
   { import = 'custom/plugins' },
   { import = 'custom/plugins/lang' },
-  -- { import = 'custom/util' },
+  { import = 'custom/util' },
+
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
