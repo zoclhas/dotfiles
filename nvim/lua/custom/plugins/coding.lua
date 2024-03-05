@@ -180,6 +180,16 @@ return {
         auto_install = true,
         highlight = { enable = true },
         indent = { enable = true },
+        -- Incremnetal selection
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = '<Enter>',
+            scope_incremental = '<Enter>',
+            node_incremental = 'v',
+            node_decremental = 'V',
+          },
+        },
       }
     end,
   },
