@@ -307,7 +307,7 @@ return {
         'tailwindcss-language-server',
         'svelte-language-server',
         'rust-analyzer',
-        'ruff-lsp',
+        'ruff',
         'html-lsp',
         'glsl_analyzer',
         'dockerfile-language-server',
