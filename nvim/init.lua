@@ -9,6 +9,7 @@ require('lazy').setup {
 
   { import = 'custom' },
   { import = 'custom/plugins' },
+  { import = 'custom/extras' },
   { import = 'custom/plugins/lang' },
 
   {

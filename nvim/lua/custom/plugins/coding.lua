@@ -150,10 +150,15 @@ return {
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
-    dependencies = {},
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      'nvim-treesitter/nvim-treesitter-context',
+    },
     build = ':TSUpdate',
     config = function()
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+
+      require('treesitter-context').setup()
 
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup {
@@ -315,11 +320,6 @@ return {
         'css-lsp',
         'marksman',
         'markdownlint',
-        'goimports',
-        'gofumpt',
-        'gomodifytags',
-        'impl',
-        'delve',
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -389,4 +389,5 @@ return {
       require('distant'):setup()
     end,
   },
+  {},
 }
