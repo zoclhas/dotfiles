@@ -90,11 +90,28 @@ vim.o.foldcolumn = '1' -- '0' is not bad
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
+vim.opt.fillchars = {
+  foldopen = '',
+  foldclose = '',
+  -- fold = "⸱",
+  fold = ' ',
+  foldsep = ' ',
+  diff = '╱',
+  eob = ' ',
+}
 
--- -- Folding
--- vim.opt.foldlevel = 99
--- vim.opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
--- vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
--- vim.opt.foldmethod = 'expr'
+local _border = 'rounded'
+
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = _border,
+})
+
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  border = _border,
+})
+
+vim.diagnostic.config {
+  float = { border = _border },
+}
 
 return {}

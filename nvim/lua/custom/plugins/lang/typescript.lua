@@ -10,7 +10,7 @@ return {
   },
   {
     'neovim/nvim-lspconfig',
-    ft = { 'typescript', 'tsx', 'javascript', 'jsx', 'javascriptreact', 'typescriptreact' },
+    -- ft = { 'typescript', 'tsx', 'javascript', 'jsx', 'javascriptreact', 'typescriptreact' },
     opts = {
       -- make sure mason installs the server
       servers = {
@@ -114,5 +114,4 @@ return {
   --   end,
   -- },
   -- { 'roobert/tailwindcss-colorizer-cmp.nvim', config = true },
-  { 'numToStr/prettierrc.nvim' },
 }
