@@ -86,6 +86,11 @@ if vim.fn.has 'nvim-0.10' == 1 then
   vim.opt.smoothscroll = true
 end
 
+vim.o.foldcolumn = '1' -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
 -- -- Folding
 -- vim.opt.foldlevel = 99
 -- vim.opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
