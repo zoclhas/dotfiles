@@ -1,5 +1,12 @@
 return {
   {
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    lazy = true,
+    opts = {
+      enable_autocmd = false,
+    },
+  },
+  {
     'echasnovski/mini.comment',
     version = false,
     config = function()
@@ -7,7 +14,9 @@ return {
         -- Options which control module behavior
         options = {
           -- Function to compute custom 'commentstring' (optional)
-          custom_commentstring = nil,
+          custom_commentstring = function()
+            return require('ts_context_commentstring.internal').calculate_commentstring() or vim.bo.commentstring
+          end,
 
           -- Whether to ignore blank lines
           ignore_blank_line = false,

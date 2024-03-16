@@ -82,4 +82,14 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagn
   update_in_insert = true,
 })
 
+if vim.fn.has 'nvim-0.10' == 1 then
+  vim.opt.smoothscroll = true
+end
+
+-- -- Folding
+-- vim.opt.foldlevel = 99
+-- vim.opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
+-- vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+-- vim.opt.foldmethod = 'expr'
+
 return {}

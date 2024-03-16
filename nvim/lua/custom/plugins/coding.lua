@@ -301,6 +301,8 @@ return {
 
       require('mason').setup()
 
+      -- require('lspconfig.ui.windows').default_options.border = 'double'
+
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format lua code
@@ -389,5 +391,50 @@ return {
       require('distant'):setup()
     end,
   },
-  {},
+
+  -- {
+  --   'kevinhwang91/nvim-ufo',
+  --   dependencies = 'kevinhwang91/promise-async',
+  --   config = function()
+  --     local border = {
+  --       { '╭', 'FloatBorder' },
+  --       { '─', 'FloatBorder' },
+  --       { '╮', 'FloatBorder' },
+  --       { '│', 'FloatBorder' },
+  --       { '╯', 'FloatBorder' },
+  --       { '─', 'FloatBorder' },
+  --       { '╰', 'FloatBorder' },
+  --       { '│', 'FloatBorder' },
+  --     }
+  --
+  --     vim.opt.foldopen = 'all'
+  --
+  --     local capabilities = vim.lsp.protocol.make_client_capabilities()
+  --     capabilities.textDocument.foldingRange = {
+  --       dynamicRegistration = false,
+  --       lineFoldingOnly = true,
+  --     }
+  --     local handlers = {
+  --       ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+  --       ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+  --     }
+  --
+  --     vim.diagnostic.config {
+  --       virtual_text = {
+  --         prefix = '■ ', -- Could be '●', '▎', 'x', '■', , 
+  --       },
+  --       float = { border = border },
+  --     }
+  --
+  --     local language_servers = require('lspconfig').util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+  --     for _, ls in ipairs(language_servers) do
+  --       require('lspconfig')[ls].setup {
+  --         handlers = handlers,
+  --         capabilities = capabilities,
+  --         -- you can add other fields for setting up lsp server in this table
+  --       }
+  --     end
+  --     require('ufo').setup()
+  --   end,
+  -- },
 }

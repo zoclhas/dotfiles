@@ -10,6 +10,7 @@ return {
   },
   {
     'neovim/nvim-lspconfig',
+    ft = { 'typescript', 'tsx', 'javascript', 'jsx', 'javascriptreact', 'typescriptreact' },
     opts = {
       -- make sure mason installs the server
       servers = {
@@ -101,16 +102,17 @@ return {
     end,
   },
 
-  {
-    'laytan/tailwind-sorter.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
-    build = 'cd formatter && npm i && npm run build',
-    config = function()
-      require('tailwind-sorter').setup {
-        on_save_enabled = true,
-        on_save_pattern = { '*.html', '*.jsx', '*.tsx', '*.rs' },
-      }
-    end,
-  },
+  -- {
+  --   'laytan/tailwind-sorter.nvim',
+  --   dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
+  --   build = 'cd formatter && npm i && npm run build',
+  --   config = function()
+  --     require('tailwind-sorter').setup {
+  --       on_save_enabled = true,
+  --       on_save_pattern = { '*.html', '*.jsx', '*.tsx', '*.rs' },
+  --     }
+  --   end,
+  -- },
   -- { 'roobert/tailwindcss-colorizer-cmp.nvim', config = true },
+  { 'numToStr/prettierrc.nvim' },
 }
