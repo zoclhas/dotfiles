@@ -180,6 +180,7 @@ return {
           'gomod',
           'gowork',
           'gosum',
+          'vue',
         },
         -- Autoinstall languages that are not installed
         auto_install = true,
@@ -322,6 +323,7 @@ return {
         'css-lsp',
         'marksman',
         'markdownlint',
+        'vue-language-server',
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
