@@ -165,10 +165,10 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       'mfussenegger/nvim-dap',
-      {
-        'lvimuser/lsp-inlayhints.nvim',
-        opts = {},
-      },
+      -- {
+      --   'lvimuser/lsp-inlayhints.nvim',
+      --   opts = {},
+      -- },
     },
     ft = { 'rust' },
     config = function()
@@ -182,9 +182,9 @@ return {
           },
         },
         server = {
-          on_attach = function(client, bufnr)
-            require('lsp-inlayhints').on_attach(client, bufnr)
-          end,
+          -- on_attach = function(client, bufnr)
+          --   require('lsp-inlayhints').on_attach(client, bufnr)
+          -- end,
         },
       }
     end,
