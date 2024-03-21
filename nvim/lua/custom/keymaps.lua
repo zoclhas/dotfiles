@@ -64,6 +64,7 @@ local lazyterm = function()
   Util.terminal(nil, { cwd = Util.root() })
 end
 vim.keymap.set('n', '<C-i>', lazyterm, { desc = 'Terminal (cwd dir)' })
+vim.keymap.set('n', '<C-_>', lazyterm, { desc = 'Terminal (cwd dir)' })
 vim.keymap.set('n', '<C-u>', function()
   Util.terminal()
 end, { desc = 'Terminal (cwd)' })
