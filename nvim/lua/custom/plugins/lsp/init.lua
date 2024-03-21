@@ -216,6 +216,26 @@ return {
           end
         end
       end
+      vim.list_extend(ensure_installed, {
+        'stylua', -- Used to format lua code
+        'prettier',
+        'python-lsp-server',
+        'black',
+        'yaml-language-server',
+        'typescript-language-server',
+        'tailwindcss-language-server',
+        'svelte-language-server',
+        'rust-analyzer',
+        'ruff',
+        'html-lsp',
+        'glsl_analyzer',
+        'dockerfile-language-server',
+        'djlint',
+        'css-lsp',
+        'marksman',
+        'markdownlint',
+        'vue-language-server',
+      })
 
       if have_mason then
         mlsp.setup { ensure_installed = ensure_installed, handlers = { setup } }
