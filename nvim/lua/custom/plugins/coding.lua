@@ -119,6 +119,7 @@ return {
           --  Generally you don't need this, because nvim-cmp will display
           --  completions whenever it has completion options available.
           ['<C-Space>'] = cmp.mapping.complete {},
+          ['<C-x>'] = cmp.mapping.abort(),
 
           -- Think of <c-l> as moving to the right of your snippet expansion.
           --  So if you have a snippet that's like:
@@ -140,7 +141,7 @@ return {
           end, { 'i', 's' }),
         },
         sources = {
-          { name = 'nvim_lsp' },
+          { name = 'nvim_lsp', keyword_length = 2, max_item_count = 150 },
           { name = 'luasnip' },
           { name = 'path' },
         },
@@ -407,7 +408,7 @@ return {
     'chipsenkbeil/distant.nvim',
     branch = 'v0.3',
     config = function()
-      require('distant'):setup()
+      require('distant').setup()
     end,
   },
 
