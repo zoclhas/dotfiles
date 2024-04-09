@@ -1,7 +1,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.lsp.inlay_hint.enable = true
+if vim.fn.has 'nvim-0.10' == 1 then
+  vim.lsp.inlay_hint.enable = true
+end
 
 vim.opt.number = true
 vim.opt.relativenumber = true

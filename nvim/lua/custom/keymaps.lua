@@ -37,12 +37,12 @@ vim.keymap.set('i', '<C-b>', '<Home>', { desc = 'Go to start of line' })
 vim.keymap.set('i', '<C-v>', '<CR><ESC>O', { desc = 'Place cursor inbetween the tags on a new line' })
 
 -- Move Lines
-vim.keymap.set('n', '<C-o>', '<cmd>m .-2<cr>==', { desc = 'Move up' })
-vim.keymap.set('n', '<C-p>', '<cmd>m .+1<cr>==', { desc = 'Move down' })
-vim.keymap.set('i', '<C-n>', '<esc><cmd>m .+1<cr>==gi', { desc = 'Move down' })
-vim.keymap.set('i', '<C-m>', '<esc><cmd>m .-2<cr>==gi', { desc = 'Move up' })
-vim.keymap.set('v', '<C-n>', ":m '>+1<cr>gv=gv", { desc = 'Move down' })
-vim.keymap.set('v', '<C-m>', ":m '<-2<cr>gv=gv", { desc = 'Move up' })
+vim.keymap.set('n', '<A-j>', '<cmd>m .+1<cr>==', { desc = 'Move Down' })
+vim.keymap.set('n', '<A-k>', '<cmd>m .-2<cr>==', { desc = 'Move Up' })
+vim.keymap.set('i', '<A-j>', '<esc><cmd>m .+1<cr>==gi', { desc = 'Move Down' })
+vim.keymap.set('i', '<A-k>', '<esc><cmd>m .-2<cr>==gi', { desc = 'Move Up' })
+vim.keymap.set('v', '<A-j>', ":m '>+1<cr>gv=gv", { desc = 'Move Down' })
+vim.keymap.set('v', '<A-k>', ":m '<-2<cr>gv=gv", { desc = 'Move Up' })
 
 -- restore the session for the current directory
 vim.api.nvim_set_keymap('n', '<leader>qs', [[<cmd>lua require("persistence").load()<cr>]], {})
@@ -65,9 +65,9 @@ local lazyterm = function()
 end
 vim.keymap.set('n', '<C-i>', lazyterm, { desc = 'Terminal (cwd dir)' })
 vim.keymap.set('n', '<C-_>', lazyterm, { desc = 'Terminal (cwd dir)' })
-vim.keymap.set('n', '<C-u>', function()
-  Util.terminal()
-end, { desc = 'Terminal (cwd)' })
+-- vim.keymap.set('n', '<C-u>', function()
+--   Util.terminal()
+-- end, { desc = 'Terminal (cwd)' })
 -- vim.keymap.set('n', '<c-/>', lazyterm, { desc = 'Terminal (root dir)' })
 vim.keymap.set('n', '<C-\\>', lazyterm, { desc = 'which_key_ignore' })
 

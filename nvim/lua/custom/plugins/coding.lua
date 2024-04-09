@@ -141,7 +141,7 @@ return {
           end, { 'i', 's' }),
         },
         sources = {
-          { name = 'nvim_lsp', keyword_length = 2, max_item_count = 150 },
+          { name = 'nvim_lsp', keyword_length = 1, max_item_count = 150 },
           { name = 'luasnip' },
           { name = 'path' },
         },

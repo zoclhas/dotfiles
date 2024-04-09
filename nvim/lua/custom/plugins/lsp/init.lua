@@ -10,6 +10,7 @@ return {
       { 'folke/neodev.nvim', opts = {} },
       'mason.nvim',
       'williamboman/mason-lspconfig.nvim',
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
     ---@class PluginLspOpts
     opts = {
@@ -198,7 +199,7 @@ return {
       end
 
       -- get all the servers that are available through mason-lspconfig
-      local have_mason, mlsp = pcall(require, 'mason-lspconfig')
+      local mlsp = require 'mason-lspconfig'
       local all_mslp_servers = {}
       if have_mason then
         all_mslp_servers = vim.tbl_keys(require('mason-lspconfig.mappings.server').lspconfig_to_package)
@@ -237,9 +238,24 @@ return {
         'vue-language-server',
       })
 
-      if have_mason then
-        mlsp.setup { ensure_installed = ensure_installed, handlers = { setup } }
-      end
+      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+
+      require('mason-lspconfig').setup {
+        handlers = {
+          function(server_name)
+            local server = servers[server_name] or {}
+            require('lspconfig')[server_name].setup {
+              cmd = server.cmd,
+              settings = server.settings,
+              filetypes = server.filetypes,
+              -- This handles overriding only values explicitly passed
+              -- by the server configuration above. Useful when disabling
+              -- certain features of an LSP (for example, turning off formatting for tsserver)
+              capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {}),
+            }
+          end,
+        },
+      }
 
       if Util.lsp.get_config 'denols' and Util.lsp.get_config 'tsserver' then
         local is_deno = require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc')
