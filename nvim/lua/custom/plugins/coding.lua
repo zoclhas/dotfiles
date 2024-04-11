@@ -191,8 +191,8 @@ return {
         incremental_selection = {
           enable = true,
           keymaps = {
-            init_selection = '<Enter>',
-            scope_incremental = '<Enter>',
+            init_selection = '<CR>',
+            scope_incremental = '<CR>',
             node_incremental = 'v',
             node_decremental = 'V',
           },

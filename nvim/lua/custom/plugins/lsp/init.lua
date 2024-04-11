@@ -222,6 +222,7 @@ return {
         'prettier',
         'python-lsp-server',
         'black',
+        'basedpyright',
         'yaml-language-server',
         'typescript-language-server',
         'tailwindcss-language-server',

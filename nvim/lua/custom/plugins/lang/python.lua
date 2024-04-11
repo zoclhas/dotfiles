@@ -11,7 +11,9 @@ return {
     'neovim/nvim-lspconfig',
     opts = {
       servers = {
-        pyright = {},
+        basedpyright = {
+          enabled = true,
+        },
         ruff_lsp = {
           keys = {
             {
