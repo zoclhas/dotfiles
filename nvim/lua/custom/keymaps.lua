@@ -33,6 +33,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set('i', '<C-h>', '<Left>')
 vim.keymap.set('i', '<C-e>', '<End>', { desc = 'Go to end of line' })
 vim.keymap.set('i', '<C-b>', '<Home>', { desc = 'Go to start of line' })
+vim.keymap.set('v', '<leader>p', '_dP')
 
 vim.keymap.set('i', '<C-v>', '<CR><ESC>O', { desc = 'Place cursor inbetween the tags on a new line' })
 
@@ -54,7 +55,7 @@ vim.api.nvim_set_keymap('n', '<leader>qd', [[<cmd>lua require("persistence").sto
 -- Others
 vim.keymap.set('i', '<C-BS>', '<Esc>cvb', {})
 vim.keymap.set('n', '<CR>', 'ciw')
-vim.keymap.set('n', ';', "<cmd>lua require('telescope.builtin').resume(require('telescope.themes').get_ivy({}))<cr>", opts)
+-- vim.keymap.set('n', ';', "<cmd>lua require('telescope.builtin').resume(require('telescope.themes').get_ivy({}))<cr>", opts)
 
 -- Cursor to not jump back to where you started your selection
 vim.keymap.set('v', 'y', 'ygv<esc>')
