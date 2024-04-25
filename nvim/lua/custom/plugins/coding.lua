@@ -233,6 +233,7 @@ return {
 
   {
     'zoclhas/nvim-highlight-colors',
+    --     'brenoprata10/nvim-highlight-colors',
     config = function()
       require('nvim-highlight-colors').setup {
         render = 'background',
@@ -300,5 +301,36 @@ return {
     -- has to be loaded on startup. Otherwise, the interactive feature of the `Subs` will only be
     -- available after the first executing of it or after a keymap of text-case.nvim has been used.
     lazy = false,
+  },
+
+  {
+    'zbirenbaum/neodim',
+    event = 'LspAttach',
+    config = function()
+      require('neodim').setup {
+        refresh_delay = 75,
+        alpha = 0.5,
+        blend_color = '#000000',
+        hide = {
+          virtual_text = false,
+          signs = false,
+          underline = false,
+        },
+        regex = {
+          '[uU]nused',
+          '[nN]ever [rR]ead',
+          '[nN]ot [rR]ead',
+        },
+        priority = 128,
+        disable = {},
+      }
+    end,
+  },
+
+  {
+    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    config = function()
+      require('lsp_lines').setup()
+    end,
   },
 }

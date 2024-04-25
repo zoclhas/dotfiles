@@ -77,3 +77,29 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
 --     vim.fn.mkdir(vim.fn.fnamemodify(file, ':p:h'), 'p')
 --   end,
 -- })
+
+vim.api.nvim_create_autocmd('CmdlineChanged', {
+  group = 'AutoCommands',
+  pattern = '*',
+  callback = function()
+    if
+      vim.fn.getcmdtype() == '/'
+      or vim.fn.getcmdtype() == '?'
+      or string.sub(vim.fn.getcmdline(), 1, 2) == 'g/'
+      or string.sub(vim.fn.getcmdline(), 1, 3) == 'g!/'
+      or string.sub(vim.fn.getcmdline(), 1, 2) == 'v/'
+    then
+      vim.cmd 'set hlsearch'
+    else
+      vim.cmd 'set nohlsearch'
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd('CmdlineLeave', {
+  group = 'AutoCommands',
+  pattern = '*',
+  callback = function()
+    vim.cmd 'set nohlsearch'
+  end,
+})

@@ -72,4 +72,11 @@ vim.keymap.set('n', '<C-_>', lazyterm, { desc = 'Terminal (cwd dir)' })
 -- vim.keymap.set('n', '<c-/>', lazyterm, { desc = 'Terminal (root dir)' })
 vim.keymap.set('n', '<C-\\>', lazyterm, { desc = 'which_key_ignore' })
 
+-- show diagnostics
+vim.keymap.set('n', '<S-n>', '', {
+  callback = function()
+    vim.diagnostic.open_float()
+  end,
+})
+
 return {}
