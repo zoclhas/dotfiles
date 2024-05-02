@@ -30,9 +30,6 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Some QoL improvements
--- vim.keymap.set('i', '<C-h>', '<Left>')
-vim.keymap.set('i', '<C-e>', '<End>', { desc = 'Go to end of line' })
-vim.keymap.set('i', '<C-b>', '<Home>', { desc = 'Go to start of line' })
 vim.keymap.set('v', '<leader>p', '_dP')
 
 vim.keymap.set('i', '<C-v>', '<CR><ESC>O', { desc = 'Place cursor inbetween the tags on a new line' })
@@ -78,5 +75,21 @@ vim.keymap.set('n', '<S-n>', '', {
     vim.diagnostic.open_float()
   end,
 })
+
+-- Windows
+vim.keymap.set('n', '<leader>ww', '<C-W>p', { desc = 'Other Window', remap = true })
+vim.keymap.set('n', '<leader>wd', '<C-W>c', { desc = 'Delete Window', remap = true })
+vim.keymap.set('n', '<leader>w-', '<C-W>s', { desc = 'Split Window Below', remap = true })
+vim.keymap.set('n', '<leader>w|', '<C-W>v', { desc = 'Split Window Right', remap = true })
+vim.keymap.set('n', '<leader>-', '<C-W>s', { desc = 'Split Window Below', remap = true })
+vim.keymap.set('n', '<leader>|', '<C-W>v', { desc = 'Split Window Right', remap = true })
+
+-- Movement
+vim.keymap.set('i', '<C-b>', '<ESC>^i', { desc = 'move beginning of line' })
+vim.keymap.set('i', '<C-e>', '<End>', { desc = 'move end of line' })
+vim.keymap.set('i', '<C-h>', '<Left>', { desc = 'move left' })
+vim.keymap.set('i', '<C-l>', '<Right>', { desc = 'move right' })
+vim.keymap.set('i', '<C-j>', '<Down>', { desc = 'move down' })
+vim.keymap.set('i', '<C-k>', '<Up>', { desc = 'move up' })
 
 return {}

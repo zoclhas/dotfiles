@@ -159,7 +159,13 @@ return {
     config = function()
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
-      require('treesitter-context').setup()
+      require('treesitter-context').setup {
+        enable = true,
+      }
+
+      vim.keymap.set('n', '[c', function()
+        require('treesitter-context').go_to_context(vim.v.count1)
+      end, { silent = true })
 
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup {
@@ -244,16 +250,16 @@ return {
     end,
   },
 
-  {
-    'briangwaltney/paren-hint.nvim',
-    lazy = false,
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-    },
-    config = function()
-      require 'paren-hint'
-    end,
-  },
+  -- {
+  --   'briangwaltney/paren-hint.nvim',
+  --   lazy = false,
+  --   dependencies = {
+  --     'nvim-treesitter/nvim-treesitter',
+  --   },
+  --   config = function()
+  --     require 'paren-hint'
+  --   end,
+  -- },
 
   {
     'chipsenkbeil/distant.nvim',
@@ -331,6 +337,12 @@ return {
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
     config = function()
       require('lsp_lines').setup()
+
+      vim.diagnostic.config {
+        virtual_text = true,
+      }
+      -- vim.diagnostic.config { virtual_lines = true }
+      vim.keymap.set('', '<Leader>l', require('lsp_lines').toggle, { desc = 'Toggle lsp_lines' })
     end,
   },
 }
