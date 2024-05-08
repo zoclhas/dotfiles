@@ -1,33 +1,3 @@
-local lspconfig = require 'lspconfig'
-lspconfig.tsserver.setup {
-  settings = {
-    typescript = {
-      inlayHints = {
-        includeInlayParameterNameHints = 'all',
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-      },
-    },
-    javascript = {
-      inlayHints = {
-        includeInlayParameterNameHints = 'all',
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-      },
-    },
-  },
-}
-
 -- Also includes TailwindCSS
 return {
   {
@@ -44,43 +14,6 @@ return {
     opts = {
       -- make sure mason installs the server
       servers = {
-        ---@type lspconfig.options.tsserver
-        tsserver = {
-          keys = {
-            {
-              '<leader>co',
-              function()
-                vim.lsp.buf.code_action {
-                  apply = true,
-                  context = {
-                    only = { 'source.organizeImports.ts' },
-                    diagnostics = {},
-                  },
-                }
-              end,
-              desc = 'Organize Imports',
-            },
-            {
-              '<leader>cR',
-              function()
-                vim.lsp.buf.code_action {
-                  apply = true,
-                  context = {
-                    only = { 'source.removeUnused.ts' },
-                    diagnostics = {},
-                  },
-                }
-              end,
-              desc = 'Remove Unused Imports',
-            },
-          },
-          ---@diagnostic disable-next-line: missing-fields
-          settings = {
-            completions = {
-              completeFunctionCalls = true,
-            },
-          },
-        },
         tailwindcss = {
           filetypes_exclude = { 'markdown' },
           settings = {
@@ -163,17 +96,20 @@ return {
     end,
   },
 
-  -- {
-  --   'laytan/tailwind-sorter.nvim',
-  --   dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
-  --   build = 'cd formatter && npm i && npm run build',
-  --   config = function()
-  --     require('tailwind-sorter').setup {
-  --       on_save_enabled = true,
-  --       on_save_pattern = { '*.html', '*.jsx', '*.tsx', '*.rs' },
-  --     }
-  --   end,
-  -- },
-  -- { 'roobert/tailwindcss-colorizer-cmp.nvim', config = true },
-  -- { 'numToStr/prettierrc.nvim' },
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    ft = { 'typescript', 'tsx', 'javascript', 'jsx', 'javascriptreact', 'typescriptreact', 'vue' },
+    config = function()
+      require('typescript-tools').setup {}
+    end,
+    keys = {
+      { '<leader>co', '<cmd>TSToolsOrganizeImports<cr>', desc = 'Organize imports' },
+      { '<leader>cR', '<cmd>TSToolsRenameFile<cr>', desc = 'Rename file' },
+      { '<leader>cq', '<cmd>TSToolsFixAll<cr>', desc = 'Fix all' },
+      { '<leader>cd', '<cmd>TSToolsGoToSourceDefinition<cr>', desc = 'Go to source definition' },
+      { '<leader>cf', '<cmd>TSToolsFileReferences<cr>', desc = 'File references' },
+      { '<leader>ci', '<cmd>TSToolsAddMissingImports<cr>', desc = 'Add missing imports' },
+    },
+  },
 }

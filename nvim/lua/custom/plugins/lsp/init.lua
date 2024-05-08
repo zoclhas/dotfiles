@@ -224,7 +224,7 @@ return {
         'black',
         'basedpyright',
         'yaml-language-server',
-        'typescript-language-server',
+        -- 'typescript-language-server',
         'tailwindcss-language-server',
         'svelte-language-server',
         'rust-analyzer',
@@ -237,6 +237,7 @@ return {
         'marksman',
         'markdownlint',
         'vue-language-server',
+        'clangd',
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }

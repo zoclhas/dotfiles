@@ -161,6 +161,7 @@ return {
 
       require('treesitter-context').setup {
         enable = true,
+        multiline_threshold = 2,
       }
 
       vim.keymap.set('n', '[c', function()
@@ -188,6 +189,9 @@ return {
           'gosum',
           'vue',
           'glsl',
+          -- 'gdscript',
+          -- 'godot_resource',
+          -- 'gdshader',
         },
         -- Autoinstall languages that are not installed
         auto_install = true,

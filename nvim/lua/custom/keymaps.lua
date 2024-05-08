@@ -33,6 +33,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('v', '<leader>p', '_dP')
 
 vim.keymap.set('i', '<C-v>', '<CR><ESC>O', { desc = 'Place cursor inbetween the tags on a new line' })
+vim.keymap.set('i', '<C-p>', '<ESC>o', { desc = 'Make a new line below' })
 
 -- Move Lines
 vim.keymap.set('n', '<A-j>', '<cmd>m .+1<cr>==', { desc = 'Move Down' })
