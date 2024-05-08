@@ -9,8 +9,11 @@ return {
         },
         sections = {
           lualine_c = {
-            'filename',
             'lsp_progress',
+            {
+              'filename',
+              path = 1,
+            },
           },
           -- lualine_x = {
           --   {
