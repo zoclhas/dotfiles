@@ -13,6 +13,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set('t', '<c-_>', '<cmd>close<cr>', { desc = 'which_key_ignore' })
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
@@ -62,12 +63,15 @@ vim.keymap.set('v', 'y', 'ygv<esc>')
 local lazyterm = function()
   Util.terminal(nil, { cwd = Util.root() })
 end
-vim.keymap.set('n', '<C-i>', lazyterm, { desc = 'Terminal (cwd dir)' })
-vim.keymap.set('n', '<C-_>', lazyterm, { desc = 'Terminal (cwd dir)' })
+vim.keymap.set('n', '<C-i>', lazyterm, { desc = 'Terminal (root dir)' })
+vim.keymap.set('n', '<C-_>', lazyterm, { desc = 'Terminal (root dir)' })
 -- vim.keymap.set('n', '<C-u>', function()
 --   Util.terminal()
 -- end, { desc = 'Terminal (cwd)' })
--- vim.keymap.set('n', '<c-/>', lazyterm, { desc = 'Terminal (root dir)' })
+vim.keymap.set('n', '<c-/>', lazyterm, { desc = 'Terminal (root dir)' })
+vim.keymap.set('n', '<c-?>', function()
+  LazyVim.terminal()
+end, { desc = 'Terminal (cwd dir)' })
 vim.keymap.set('n', '<C-\\>', lazyterm, { desc = 'which_key_ignore' })
 
 -- show diagnostics
