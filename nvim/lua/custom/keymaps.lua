@@ -61,7 +61,7 @@ vim.keymap.set('v', 'y', 'ygv<esc>')
 
 -- Terminal
 local lazyterm = function()
-  Util.terminal(nil, { cwd = Util.root() })
+  Util.terminal(nil, { cwd = Util.root(), border = 'rounded', style = 'minimal', backdrop = 1 })
 end
 vim.keymap.set('n', '<C-i>', lazyterm, { desc = 'Terminal (root dir)' })
 vim.keymap.set('n', '<C-_>', lazyterm, { desc = 'Terminal (root dir)' })
@@ -70,7 +70,7 @@ vim.keymap.set('n', '<C-_>', lazyterm, { desc = 'Terminal (root dir)' })
 -- end, { desc = 'Terminal (cwd)' })
 vim.keymap.set('n', '<c-/>', lazyterm, { desc = 'Terminal (root dir)' })
 vim.keymap.set('n', '<c-?>', function()
-  LazyVim.terminal()
+  Util.terminal(nil, { border = 'rounded' })
 end, { desc = 'Terminal (cwd dir)' })
 vim.keymap.set('n', '<C-\\>', lazyterm, { desc = 'which_key_ignore' })
 
