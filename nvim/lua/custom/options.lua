@@ -116,4 +116,13 @@ vim.diagnostic.config {
   float = { border = _border },
 }
 
+vim.filetype.add {
+  filename = {
+    ['.env'] = 'sh',
+  },
+  pattern = {
+    ['%.env%.[%w_.-]+'] = 'sh',
+  },
+}
+
 return {}

@@ -5,7 +5,9 @@ return {
     config = function()
       require('lualine').setup {
         options = {
-          theme = 'gruvbox_dark',
+          -- theme = 'gruvbox_dark',
+          -- theme = 'vitesse',
+          theme = 'seoul256',
         },
         sections = {
           lualine_c = {

@@ -97,4 +97,6 @@ vim.keymap.set('i', '<C-l>', '<Right>', { desc = 'move right' })
 vim.keymap.set('i', '<C-j>', '<Down>', { desc = 'move down' })
 vim.keymap.set('i', '<C-k>', '<Up>', { desc = 'move up' })
 
+vim.keymap.set({ 'i', 'n' }, '<leader>dc', '<cmd>noh<cr>', { desc = 'Remove search highlights' })
+
 return {}

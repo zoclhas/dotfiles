@@ -242,14 +242,14 @@ return {
   },
 
   {
-    'zoclhas/nvim-highlight-colors',
-    --     'brenoprata10/nvim-highlight-colors',
+    -- 'zoclhas/nvim-highlight-colors',
+    'brenoprata10/nvim-highlight-colors',
     config = function()
       require('nvim-highlight-colors').setup {
         render = 'background',
         enable_named_colors = true,
-        enable_tailwind = true,
-        enable_document_color = true,
+        -- enable_tailwind = true,
+        -- enable_document_color = true,
       }
     end,
   },
