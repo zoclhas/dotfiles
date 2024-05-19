@@ -43,6 +43,17 @@ require('lazy').setup {
 
   {
     'stevearc/conform.nvim',
+    keys = {
+      {
+        -- Customize or remove this keymap to your liking
+        '<leader>fm',
+        function()
+          require('conform').format { async = true, lsp_fallback = true }
+        end,
+        mode = '',
+        desc = 'Format buffer',
+      },
+    },
     opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)
@@ -52,7 +63,7 @@ require('lazy').setup {
           return
         end
 
-        return { timeout_ms = 5000, lsp_fallback = true, async = true }
+        return { timeout_ms = 5000, lsp_fallback = true }
       end,
       format_after_save = { lsp_fallback = true },
       formatters_by_ft = {
@@ -60,22 +71,25 @@ require('lazy').setup {
         --
         python = { 'black' },
         --
-        javascript = { 'prettier' },
-        javascriptreact = { 'prettier' },
-        typescript = { 'prettier' },
-        typescriptreact = { 'prettier' },
-        vue = { 'prettier' },
-        css = { 'prettier' },
-        scss = { 'prettier' },
-        less = { 'prettier' },
-        html = { 'prettier' },
-        json = { 'prettier' },
-        jsonc = { 'prettier' },
-        yaml = { 'prettier' },
-        markdown = { 'prettier' },
-        ['markdown.mdx'] = { 'prettier' },
-        graphql = { 'prettier' },
-        handlebars = { 'prettier' },
+        javascript = { { 'prettierd', 'prettier' } },
+        javascriptreact = { { 'prettierd', 'prettier' } },
+        typescript = { { 'prettierd', 'prettier' } },
+        typescriptreact = { { 'prettierd', 'prettier' } },
+        vue = { { 'prettierd', 'prettier' } },
+        css = { { 'prettierd', 'prettier' } },
+        scss = { { 'prettierd', 'prettier' } },
+        less = { { 'prettierd', 'prettier' } },
+        html = { { 'prettierd', 'prettier' } },
+        json = { { 'prettierd', 'prettier' } },
+        jsonc = { { 'prettierd', 'prettier' } },
+        yaml = { { 'prettierd', 'prettier' } },
+        markdown = { { 'prettierd', 'prettier' } },
+        ['markdown.mdx'] = { { 'prettierd', 'prettier' } },
+        graphql = { { 'prettierd', 'prettier' } },
+        handlebars = { { 'prettierd', 'prettier' } },
+        --
+        sh = { 'shfmt' },
+        zsh = { 'shfmt' },
       },
     },
     config = function(_, opts)
@@ -103,6 +117,7 @@ require('lazy').setup {
           vim.list_extend(args, { '--config', localPrettierConfig })
         elseif globalPrettierConfig and not disableGlobalPrettierConfig then
           vim.list_extend(args, { '--config', globalPrettierConfig })
+          vim.list_extend(args, { '--tab-width', '2' })
         end
 
         local hasTailwindPrettierPlugin = vim.fs.find('node_modules/prettier-plugin-tailwindcss', {
