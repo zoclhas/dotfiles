@@ -11,7 +11,7 @@ return {
       end
     end
 
-    require("kanagawa").setup {
+    require("kanagawa").setup({
       compile = true,
       undercurls = true,
 
@@ -84,9 +84,9 @@ return {
           ["@markup.heading.6.markdown"] = { link = "HeadingRest" },
         }
       end,
-    }
+    })
 
-    vim.cmd.colorscheme "kanagawa-dragon"
-    vim.cmd.hi "Comment gui=none"
+    vim.cmd.colorscheme("kanagawa-dragon")
+    vim.cmd.hi("Comment gui=none")
   end,
 }

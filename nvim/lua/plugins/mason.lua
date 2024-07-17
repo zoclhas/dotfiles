@@ -1,18 +1,12 @@
----@type LazySpec
 return {
-  {
-    "williamboman/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = {
-        "lua_ls",
-      },
-    },
+  "williamboman/mason-lspconfig.nvim",
+  dependencies = {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
-  {
-    "jay-babu/mason-null-ls.nvim",
-    opts = {
+  config = function()
+    require("mason-tool-installer").setup({
       ensure_installed = {
-        "stylua",
+        "stylua", -- Used to format lua code
         "prettier",
         "python-lsp-server",
         "black",
@@ -33,6 +27,6 @@ return {
         "vue-language-server",
         "clangd",
       },
-    },
-  },
+    })
+  end,
 }
