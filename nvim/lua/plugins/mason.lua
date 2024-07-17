@@ -26,7 +26,7 @@ return {
         "html-lsp",
         "glsl_analyzer",
         "dockerfile-language-server",
-        -- "djlint",
+        "djlint",
         "css-lsp",
         "marksman",
         "markdownlint",
