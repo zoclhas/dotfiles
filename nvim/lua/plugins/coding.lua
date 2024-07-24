@@ -1,24 +1,41 @@
 return {
-  { "echasnovski/mini.surround" },
+  {
+    "echasnovski/mini.surround",
+    recommended = true,
+    keys = function(_, keys)
+      -- Populate the keys based on the user's options
+      local opts = LazyVim.opts("mini.surround")
+      local mappings = {
+        { opts.mappings.add, desc = "Add Surrounding", mode = { "n", "v" } },
+        { opts.mappings.delete, desc = "Delete Surrounding" },
+        { opts.mappings.find, desc = "Find Right Surrounding" },
+        { opts.mappings.find_left, desc = "Find Left Surrounding" },
+        { opts.mappings.highlight, desc = "Highlight Surrounding" },
+        { opts.mappings.replace, desc = "Replace Surrounding" },
+        { opts.mappings.update_n_lines, desc = "Update `MiniSurround.config.n_lines`" },
+      }
+      mappings = vim.tbl_filter(function(m)
+        return m[1] and #m[1] > 0
+      end, mappings)
+      return vim.list_extend(mappings, keys)
+    end,
+    opts = {
+      mappings = {
+        add = "gsa", -- Add surrounding in Normal and Visual modes
+        delete = "gsd", -- Delete surrounding
+        find = "gsf", -- Find surrounding (to the right)
+        find_left = "gsF", -- Find surrounding (to the left)
+        highlight = "gsh", -- Highlight surrounding
+        replace = "gsr", -- Replace surrounding
+        update_n_lines = "gsn", -- Update `n_lines`
+      },
+    },
+  },
 
   {
-    "nvim-pack/nvim-spectre",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
+    "max397574/better-escape.nvim",
     config = function()
-      vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
-        desc = "Toggle Spectre",
-      })
-      vim.keymap.set("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
-        desc = "Search current word",
-      })
-      vim.keymap.set("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
-        desc = "Search current word",
-      })
-      vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
-        desc = "Search on current file",
-      })
+      require("better_escape").setup()
     end,
   },
 }

@@ -12,3 +12,12 @@ vim.keymap.set("n", "<CR>", "ciw")
 
 vim.keymap.set("i", "<C-v>", "<CR><ESC>O<Tab>", { desc = "Place cursor inbetween the tags on a new line" })
 vim.keymap.set("i", "<C-p>", "<ESC>o", { desc = "Make a new line below" })
+
+vim.keymap.del({ "i", "n" }, "<C-s>")
+-- Autofill the useState variable from say `const [visible]` -> `const [visible, setVisible] = useState()`
+vim.keymap.set(
+  { "i", "n" },
+  "<C-s>",
+  "<ESC>F[yi[f]i, <ESC>pb<S-~>hiset<ESC><S-a> = useState()<ESC>F(a",
+  { desc = "Tiny snippet for useEffect" }
+)
