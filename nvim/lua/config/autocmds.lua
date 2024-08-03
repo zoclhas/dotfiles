@@ -1,7 +1,6 @@
 local augroups = {}
 
 augroups.yankpost = {
-
   save_cursor_position = {
     event = { "VimEnter", "CursorMoved" },
     pattern = "*",
@@ -14,7 +13,7 @@ augroups.yankpost = {
     event = "TextYankPost",
     pattern = "*",
     callback = function()
-      vim.highlight.on_yank({ higroup = "IncSearch", timeout = 400, on_visual = true })
+      vim.highlight.on_yank({ higroup = "IncSearch", timeout = 150, on_visual = true })
     end,
   },
 

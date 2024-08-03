@@ -73,4 +73,48 @@ return {
       },
     },
   },
+
+  {
+    "Abstract-IDE/abstract-autocmds",
+    lazy = false,
+    config = function()
+      require("abstract-autocmds").setup({
+        clear_last_used_search = true,
+        highlight_on_yank = {
+          enable = true,
+          opts = {
+            timeout = 150,
+          },
+        },
+        give_border = {
+          enable = true,
+          opts = {
+            pattern = { "null-ls-info", "lspinfo" },
+          },
+        },
+        smart_visual_paste = true,
+        smart_dd = true,
+        visually_codeblock_shift = true,
+        ctrl_backspace_delete = {
+          enable = true,
+          opts = {
+            insert_mode = true,
+            cmd_mode = false,
+          },
+        },
+      })
+    end,
+  },
+
+  -- Regex help
+  {
+    "tomiis4/Hypersonic.nvim",
+    event = "CmdlineEnter",
+    cmd = "Hypersonic",
+    config = function()
+      require("hypersonic").setup({
+        -- config
+      })
+    end,
+  },
 }

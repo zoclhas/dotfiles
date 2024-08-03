@@ -34,13 +34,6 @@ return {
               path = 1,
             },
           },
-          -- lualine_x = {
-          --   {
-          --     require('noice').api.statusline.mode.get,
-          --     cond = require('noice').api.statusline.mode.has,
-          --     color = { fg = '#ff9e64' },
-          --   },
-          -- },
           lualine_z = { "location" },
         },
       })
@@ -113,6 +106,21 @@ return {
       end
 
       return opts
+    end,
+  },
+
+  {
+    "shellRaining/hlchunk.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("hlchunk").setup({
+        chunk = {
+          enable = true,
+        },
+        line_num = {
+          enable = true,
+        },
+      })
     end,
   },
 }
