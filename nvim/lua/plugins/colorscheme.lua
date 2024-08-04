@@ -90,3 +90,28 @@ return {
     vim.cmd.hi("Comment gui=none")
   end,
 }
+
+-- return {
+--   "vague2k/vague.nvim",
+--   config = function()
+--     local b = "bold"
+--     local i = "italic"
+--     require("vague").setup({
+--       boolean = b,
+--       error = i,
+--       conditionals = i,
+--       functions = i,
+--
+--       keywords = i,
+--       keyword_return = i,
+--       keywords_loop = i,
+--       keywords_label = i,
+--       keywords_exception = i,
+--
+--       builtin_constants = i,
+--       builtin_functions = i,
+--       builtin_types = i,
+--       builtin_variables = i,
+--     })
+--   end,
+-- }

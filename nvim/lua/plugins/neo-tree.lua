@@ -13,5 +13,15 @@ return {
     }
 
     opts.window.position = "right"
+    opts.event_handlers = {
+      {
+        event = "neo_tree_buffer_enter",
+        handler = function()
+          vim.cmd([[
+          setlocal number relativenumber
+        ]])
+        end,
+      },
+    }
   end,
 }
