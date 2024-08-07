@@ -23,5 +23,12 @@ return {
         end,
       },
     }
+
+    opts.window.mappings["o"] = function(state)
+      local node = state.tree:get_node()
+      local path = node:get_id()
+      -- Linux: open file in default application
+      vim.fn.jobstart({ "nemo", path }, { detach = true })
+    end
   end,
 }
