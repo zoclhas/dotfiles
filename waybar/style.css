@@ -3,10 +3,11 @@
 }
 
 window#waybar {
-  background: rgba(18, 18, 18, 0.7);
-  border: 1px solid #999999;
+  background: rgba(26, 30, 21, 0.8);
   color: #ffffff;
   border-radius: 9px;
+
+  border: 2px solid #849170;
 
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -29,13 +30,12 @@ tooltip label {
   padding: 4px;
 }
 #workspaces button {
-  padding: 1px 5.5px;
+  padding: 1px 1px;
   padding-top: 2px;
-  margin-right: 0;
+  margin-bottom: 2px;
 
-  background: rgb(36, 36, 36);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(173, 194, 148, 0.4);
+  font-weight: 800;
   border-radius: 7px;
 }
 
@@ -44,11 +44,17 @@ tooltip label {
 }
 
 #workspaces button.active {
-  border: 1px solid rgba(255, 255, 255, 1);
+  background: rgba(173, 194, 148, 0.8);
 }
 
-#clock,
-#clock.date,
+#clock {
+  padding: 3px 7px;
+  margin: 0 4px;
+
+  border-radius: 7px;
+  color: #fff;
+}
+
 #tray,
 #bluetooth,
 #custom-power,
@@ -57,51 +63,83 @@ tooltip label {
 #memory,
 #cpu,
 #battery {
-  padding: 0 7px;
-  padding-top: 2px;
-  margin: 4px 0;
+  padding: 3px 7px;
+  margin: 0 4px;
+  margin-top: 2px;
 
-  border: 1px solid black;
   border-radius: 7px;
-  color: #000;
+  color: #fff;
 }
 
-#clock,
-#clock.date {
-  background: #ffa1a1;
+#clock.h,
+#clock.m,
+#clock.s {
+  background: rgba(88, 112, 64, 0.4);
+  padding: 7px 1px;
+}
+#clock.h {
+  border-radius: 7px 7px 0 0;
+  border-bottom: 1px solid rgba(173, 194, 148, 0.3);
+}
+#clock.m {
+  border-radius: 0px;
+  border-bottom: 1px solid rgba(173, 194, 148, 0.3);
+}
+#clock.s {
+  border-radius: 0 0 7px 7px;
+}
+
+#clock.mn {
+  background: rgba(114, 142, 84, 0.4);
+  border-radius: 7px 7px 0 0;
+  border-bottom: 1px solid rgba(173, 194, 148, 0.3);
+
+  padding: 5px 1px;
+  margin-top: 2px;
+}
+#clock.yr {
+  background: rgba(114, 142, 84, 0.4);
+  border-radius: 0 0 7px 7px;
+
+  padding: 5px 1px;
 }
 
 #tray {
-  background: #343935;
+  background: rgba(56, 63, 48, 0.9);
+  padding: 7px 3px;
 }
 
 #backlight {
-  background: #fff;
+  background: rgba(132, 145, 112, 0.9);
+  padding: 7px 3px;
 }
 
 #pulseaudio {
-  background: #97bedc;
-}
-
-#cpu {
-  background: #ffdca0;
+  background: rgba(113, 130, 96, 0.9);
+  padding: 7px 3px;
 }
 
 #memory {
-  background: #e1c0fa;
+  background: rgba(88, 102, 74, 0.9);
+  padding: 7px 3px;
+}
+
+#cpu {
+  background: rgba(68, 77, 56, 0.9);
+  padding: 7px 3px;
 }
 
 #battery {
-  background: #94b979;
+  background: rgba(56, 63, 48, 0.9);
 }
 #battery.warning {
-  background: #e9b32a;
+  background: rgba(88, 112, 64, 0.5);
 }
 #battery.critical {
-  background: #cf3f61;
+  background: rgba(88, 112, 64, 0.2);
 }
 
 #custom-power {
-  background: #00988e;
-  margin-right: 4px;
+  background: rgba(48, 54, 43, 0.9);
+  margin-bottom: 4px;
 }

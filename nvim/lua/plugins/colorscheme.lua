@@ -15,7 +15,8 @@ return {
       compile = true,
       undercurls = true,
 
-      transparent = ternary(vim.g.neovide, false, true),
+      -- transparent = ternary(vim.g.neovide, false, true),
+      transparent = false,
       terminalColors = true,
 
       colors = {
@@ -30,6 +31,7 @@ return {
 
       overrides = function(colors)
         local theme = colors.theme
+
         return {
           NormalFloat = { bg = "none" },
           FloatBorder = { bg = "none" },
@@ -38,6 +40,26 @@ return {
           NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
           LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
           MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+
+          TelescopeTitle = { fg = theme.ui.special, bold = true },
+          TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+          TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+          TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+          TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+          TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+          TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+
+          NeoTreeNormal = { bg = theme.ui.bg_dim },
+          NeoTreeNormalNC = { bg = theme.ui.bg_dim },
+
+          -- LineNrAbove = { bg = theme.ui.bg_dim },
+          LineNr = { bg = theme.ui.bg_dim },
+          -- LineNrBelow = { bg = theme.ui.bg_dim },
+
+          Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+          PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+          PmenuSbar = { bg = theme.ui.bg_m1 },
+          PmenuThumb = { bg = theme.ui.bg_p2 },
 
           Heading1 = { fg = colors.palette.peachRed, bold = true },
           Heading2 = { fg = colors.palette.waveRed, bold = true },

@@ -1,0 +1,12 @@
+á:u acute
+é:e acute
+í:i acute
+ó:o acute
+ú:u acute
+ñ:n tilde
+ç:c cedilla
+ë:e
+ô:o cap
+°:Degree symbol
+«:Left-pointing double angle quotation mark
+»:Right-pointing double angle quotation mark

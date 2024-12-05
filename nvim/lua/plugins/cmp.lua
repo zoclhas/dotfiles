@@ -55,6 +55,10 @@ return {
       local luasnip = require("luasnip")
       luasnip.config.setup({})
 
+      vim.cmd([[
+        highlight! Pmenu guibg=#12140f
+      ]])
+
       return {
         auto_brackets = {}, -- configure any filetype to auto add brackets
         completion = {
@@ -101,12 +105,10 @@ return {
         },
         window = {
           completion = {
-            border = "rounded",
             scrollbar = "║",
             winhighlight = "Normal:Pmenu",
           },
           documentation = {
-            border = "rounded",
             scrollbar = "║",
             winhighlight = "Normal:Pmenu",
           },
