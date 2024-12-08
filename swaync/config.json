@@ -1,3 +1,99 @@
 {
-  "positionY": "bottom"
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionY": "top",
+  "widgets": [
+    "title",
+    "dnd",
+    "volume",
+    "backlight",
+    "notifications",
+    "mpris",
+    "buttons-grid"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Notification Center",
+      "clear-all-button": true,
+      "button-text": "󰆴  Clear"
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+    "label": {
+      "max-lines": 1,
+      "text": "Notification Center"
+    },
+    "mpris": {
+      "image-size": 96,
+      "image-radius": 7
+    },
+    "volume": {
+      "label": "󰕾",
+      "expand-button-label": "",
+      "collapse-button-label": "",
+      "show-per-app": true,
+      "show-per-app-label": true
+    },
+    "backlight": {
+      "label": "󰃟",
+      "subsystem": "backlight",
+      "device": "amdgpu_bl1"
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "󰐥",
+          "command": "systemctl poweroff"
+        },
+        {
+          "label": "󰜉",
+          "command": "systemctl reboot"
+        },
+        {
+          "label": "󰌾",
+          "command": "swaylock-corrupter"
+        },
+        {
+          "label": "󰍃",
+          "command": "swaymsg exit"
+        },
+        {
+          "label": "󰏥",
+          "command": "systemctl suspend"
+        },
+        {
+          "label": "󰕾",
+          "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+        },
+        {
+          "label": "󰍬",
+          "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+        },
+        {
+          "label": "󰖩",
+          "command": "iwgtk"
+        },
+        {
+          "label": "󰂯",
+          "command": "blueman-manager"
+        },
+        {
+          "label": "",
+          "command": "obs"
+        },
+        {
+          "label": "",
+          "command": "asusctl profile -P Performance"
+        },
+        {
+          "label": "󰑲",
+          "command": "asusctl profile -P Balanced"
+        },
+        {
+          "label": "󰌪",
+          "command": "asusctl profile -P Quiet"
+        }
+      ]
+    }
+  }
 }
