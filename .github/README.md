@@ -1,5 +1,3 @@
 # dotfiles
 
-## Neovim
-
-![](/.github/neovim.png)
+![](/.github/ex.png)
