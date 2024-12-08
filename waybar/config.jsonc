@@ -8,7 +8,14 @@
   "margin-left": 0,
 
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["clock#h", "clock#m", "clock#s", "clock#mn", "clock#yr"],
+  "modules-center": [
+    "clock#h",
+    "clock#m",
+    "clock#s",
+    "clock#mn",
+    "clock#yr",
+    "custom/notification",
+  ],
   "modules-right": [
     "tray",
     "backlight",
@@ -27,6 +34,7 @@
   },
   "hyprland/window": {
     "max-length": 40,
+    "rotate": 270,
   },
 
   "clock#h": {
@@ -114,13 +122,35 @@
       "warning": 30,
       "critical": 15,
     },
-    "format": "{icon}",
-    "format-charging": "{icon}",
+    "format": "{icon} <b>{capacity}%</b>",
+    "format-charging": "{icon}󱐋 <b>{capacity}%</b>",
     "format-icons": ["󰁻", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂀", "󰂂", "󰁹"],
     "max-length": 25,
+    "rotate": 90,
   },
   "custom/power": {
     "format": "⏻",
     "on-click": "$HOME/.config/waybar/power-menu.sh",
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='#849170'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='#849170'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='#849170'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='#849170'><sup></sup></span>",
+      "dnd-inhibited-none": "",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+    "rotate": 90,
   },
 }
