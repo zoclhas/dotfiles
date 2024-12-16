@@ -28,6 +28,9 @@ require("lazy").setup({
 
     -- Rust
     { import = "lazyvim.plugins.extras.lang.rust" },
+
+    -- Misc
+    { import = "lazyvim.plugins.extras.ai.copilot" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
