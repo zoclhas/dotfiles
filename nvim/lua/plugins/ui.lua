@@ -109,6 +109,8 @@ return {
     end,
   },
 
+  { "edluffy/hologram.nvim" },
+
   -- {
   --   "shellRaining/hlchunk.nvim",
   --   event = { "BufReadPre", "BufNewFile" },

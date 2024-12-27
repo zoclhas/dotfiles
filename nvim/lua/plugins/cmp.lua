@@ -49,7 +49,7 @@ return {
           auto_show_delay_ms = 200,
         },
         ghost_text = {
-          enabled = vim.g.ai_cmp,
+          -- enabled = vim.g.ai_cmp,
         },
       },
 
@@ -84,27 +84,27 @@ return {
         end
       end
 
-      -- add ai_accept to <Tab> key
-      if not opts.keymap["<Tab>"] then
-        if opts.keymap.preset == "super-tab" then -- super-tab
-          opts.keymap["<Tab>"] = {
-            function(cmp)
-              if cmp.snippet_active() then
-                return cmp.accept()
-              else
-                return cmp.select_and_accept()
-              end
-            end,
-            LazyVim.cmp.map({ "snippet_forward", "ai_accept" }),
-            "fallback",
-          }
-        else -- other presets
-          opts.keymap["<Tab>"] = {
-            LazyVim.cmp.map({ "snippet_forward", "ai_accept" }),
-            "fallback",
-          }
-        end
-      end
+      -- -- add ai_accept to <Tab> key
+      -- if not opts.keymap["<Tab>"] then
+      --   if opts.keymap.preset == "super-tab" then -- super-tab
+      --     opts.keymap["<Tab>"] = {
+      --       function(cmp)
+      --         if cmp.snippet_active() then
+      --           return cmp.accept()
+      --         else
+      --           return cmp.select_and_accept()
+      --         end
+      --       end,
+      --       LazyVim.cmp.map({ "snippet_forward", "ai_accept" }),
+      --       "fallback",
+      --     }
+      --   else -- other presets
+      --     opts.keymap["<Tab>"] = {
+      --       LazyVim.cmp.map({ "snippet_forward", "ai_accept" }),
+      --       "fallback",
+      --     }
+      --   end
+      -- end
 
       ---  NOTE: compat with latest version. Currenlty 0.7.6
       if not vim.g.lazyvim_blink_main then
