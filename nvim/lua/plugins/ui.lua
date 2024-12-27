@@ -109,7 +109,14 @@ return {
     end,
   },
 
-  { "edluffy/hologram.nvim" },
+  {
+    "edluffy/hologram.nvim",
+    config = function()
+      require("hologram").setup({
+        -- auto_display = true,
+      })
+    end,
+  },
 
   -- {
   --   "shellRaining/hlchunk.nvim",

@@ -17,12 +17,27 @@ return {
         opts = {},
         version = not vim.g.lazyvim_blink_main and "*",
       },
+      { "L3MON4D3/LuaSnip", version = "v2.*" },
     },
     event = "InsertEnter",
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
+      snippets = {
+        expand = function(snippet)
+          require("luasnip").lsp_expand(snippet)
+        end,
+        active = function(filter)
+          if filter and filter.direction then
+            return require("luasnip").jumpable(filter.direction)
+          end
+          return require("luasnip").in_snippet()
+        end,
+        jump = function(direction)
+          require("luasnip").jump(direction)
+        end,
+      },
       appearance = {
         -- sets the fallback highlight groups to nvim-cmp's highlight groups
         -- useful for when your theme doesn't support blink.cmp
@@ -83,6 +98,18 @@ return {
           table.insert(enabled, source)
         end
       end
+
+      local ls = require("luasnip")
+
+      vim.keymap.set({ "i" }, "<C-K>", function()
+        ls.expand()
+      end, { silent = true })
+      vim.keymap.set({ "i", "s" }, "<C-L>", function()
+        ls.jump(1)
+      end, { silent = true })
+      vim.keymap.set({ "i", "s" }, "<C-H>", function()
+        ls.jump(-1)
+      end, { silent = true })
 
       -- -- add ai_accept to <Tab> key
       -- if not opts.keymap["<Tab>"] then

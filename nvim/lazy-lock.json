@@ -1,6 +1,7 @@
 {
   "Hypersonic.nvim": { "branch": "main", "commit": "734dfbfbe51952f102a9b439d53d4267bb0024cd" },
   "LazyVim": { "branch": "main", "commit": "c8d8dd0ab6b4db711b33a79835cbac3b389b37f4" },
+  "LuaSnip": { "branch": "master", "commit": "03c8e67eb7293c404845b3982db895d59c0d1538" },
   "SchemaStore.nvim": { "branch": "main", "commit": "545d8814f624fb5239c4691fa0914549540e6f53" },
   "abstract-autocmds": { "branch": "main", "commit": "d2e4cfd67cf59166f9ffa0bd3bc90899ffc653e7" },
   "aerial.nvim": { "branch": "master", "commit": "fd7fbe36772d7a955815c90ff9b58523bfdb410d" },
