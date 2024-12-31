@@ -80,8 +80,9 @@ return {
       },
 
       keymap = {
-        preset = "enter",
+        preset = "default",
         ["<Tab>"] = { "select_and_accept" },
+        -- ["<CR>"] = { "" },
       },
     },
     ---@param opts blink.cmp.Config | { sources: { compat: string[] } }

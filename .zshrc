@@ -71,6 +71,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git)
+plugins+=(zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,10 +102,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-# Autostart Hyprland at Login
-if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-    exec Hyprland
-fi
+# # Autostart Hyprland at Login
+# if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+#     exec Hyprland
+# fi
 
 # Aliases
 alias q='exit'
@@ -123,7 +124,7 @@ alias vim='nvim'
 alias nv='neovide'
 
 alias gs='git status'
-alias ga='git add -A'
+alias ga='git add'
 alias gc='git commit'
 alias gpll='git pull'
 alias gpsh='git push'
@@ -141,7 +142,6 @@ alias cb='cargo build'
 alias ct='cargo test'
 alias clippy='cargo clippy'
 
-alias lock='swaylock'
 alias standby='systemctl suspend'
 
 alias b='bat'
@@ -197,7 +197,37 @@ precmd() { vcs_info }
 # Prompt Appearance
 setopt PROMPT_SUBST
 
-PS1='%B%F{green}❬%n%f@%F{green}%m❭%f %F{blue} %1~%f%b ${vcs_info_msg_0_}>===> '
+# PS1='%B%F{green}❬%n%f@%F{green}%m❭%f %F{blue} %1~%f%b ${vcs_info_msg_0_}>===> '
+
+
+function zvm_after_select_vi_mode() {
+  case $ZVM_MODE in
+    $ZVM_MODE_NORMAL)
+      MODE_INDICATOR="%F{blue}❯NRM"
+    ;;
+    $ZVM_MODE_INSERT)
+      MODE_INDICATOR="%F{green}❯INS"
+    ;;
+    $ZVM_MODE_VISUAL)
+      MODE_INDICATOR="%F{yellow}❯VSL"
+    ;;
+    $ZVM_MODE_VISUAL_LINE)
+      MODE_INDICATOR="%F{magenta}❯VSE"
+    ;;
+    $ZVM_MODE_REPLACE)
+      MODE_INDICATOR="%F{red}❯RPL"
+    ;;
+    *)
+      MODE_INDICATOR="%F{green}❯INS"
+    ;;
+  esac
+
+  PS1='${MODE_INDICATOR} %F{blue} %1~%f%b ${vcs_info_msg_0_}>===> '
+}
+
+# Ensure the indicator updates when entering the shell
+zvm_after_select_vi_mode
+
 
 # XDG user dirs
 source ~/.config/user-dirs.dirs
@@ -235,6 +265,7 @@ alias zel="zellij"
 alias z="zellij"
 alias :q="exit"
 alias yeet="rm"
+alias $=""
 
 alias adstd="/opt/android-studio/bin/studio.sh"
 
@@ -253,7 +284,11 @@ mkcd() {
 
 gacp() {
   if [ -n "$1" ]; then
-    ga . && gc -m "$1" && gP
+    if [ -n "$2" ]; then
+      ga . && gc -m "$1" -m "$2" && gP
+    else
+      ga . && gc -m "$1" && gP
+    fi
   else
     echo "Usage: gacp <commit_message>"
   fi
@@ -266,6 +301,15 @@ ncd() {
     echo "Usage: ncd <dir>"
   fi
 }
+
+nssh() { 
+  local url=$(echo $1 | sed "s/tcp:\\/\\///")
+  local host=${url%:*}
+  local port=${url##*:}
+  ssh zoc@$host -p $port;
+}
+
+
 . "$HOME/.cargo/env"
 
 
@@ -276,7 +320,19 @@ ncd() {
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/home/zoc/.dev/flutter/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# pnpm
+export PNPM_HOME="/home/zoc/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# . "$HOME/.local/bin/env"
+. "/home/zoc/.deno/env"
