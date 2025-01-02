@@ -3,11 +3,10 @@
 }
 
 window#waybar {
-  background: rgba(26, 30, 21, 0.8);
+  background: rgba(26, 26, 34, 0);
   color: #ffffff;
-  border-radius: 9px;
-
-  border: 2px solid #849170;
+  /*border-radius: 6px;*/
+  /*border: 1px solid #9cabca;*/
 
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -18,41 +17,52 @@ window#waybar.hidden {
 }
 
 tooltip {
-  background: rgba(26, 30, 21, 0.8);
-  border: 2px solid #849170;
-  border-radius: 9px;
+  background: rgba(26, 26, 34, 1);
+  border: 1px solid #9cabca;
+  border-radius: 4px;
 }
 tooltip label {
   color: #ffffff;
 }
 
 #workspaces {
-  padding: 4px;
+  padding-top: 2px;
+  padding-left: 2px;
 }
 #workspaces button {
-  padding: 1px 1px;
-  padding-top: 2px;
-  margin-bottom: 2px;
+  padding: 0px 0px;
+  margin-right: 2px;
 
-  background: rgba(173, 194, 148, 0.4);
-  font-weight: 800;
-  border-radius: 7px;
+  background: rgba(24, 24, 32, 0.9);
+  border: 1px solid #727169;
+  border-radius: 6px;
 }
 
 #workspaces button:hover {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(54, 54, 70, 0.9);
 }
 
 #workspaces button.active {
-  background: rgba(173, 194, 148, 0.8);
+  background: rgba(26, 26, 34, 0.9);
+  border-color: #9cabca;
+  font-weight: 800;
 }
 
-#clock {
+#clock.d,
+#clock.t {
   padding: 3px 7px;
-  margin: 0 4px;
+  margin-top: 2px;
 
-  border-radius: 7px;
-  color: #fff;
+  background: rgba(54, 54, 70, 0.9);
+  /*border: 1px solid rgba(26, 26, 34, 1);*/
+}
+#clock.d {
+  border-radius: 6px 0 0px 6px;
+}
+#clock.t {
+  border-radius: 0 6px 6px 0;
+  background: rgba(84, 84, 109, 0.9);
+  margin-right: 2px;
 }
 
 #tray,
@@ -63,90 +73,68 @@ tooltip label {
 #memory,
 #cpu,
 #battery,
-#custom-notification {
-  padding: 3px 7px;
-  margin: 0 4px;
+#custom-notification,
+#custom-temp {
   margin-top: 2px;
+  padding: 2px 6px;
 
   border-radius: 7px;
   color: #fff;
 }
 
-#clock.h,
-#clock.m,
-#clock.s {
-  background: rgba(88, 112, 64, 0.4);
-  padding: 7px 1px;
-}
-#clock.h {
-  border-radius: 7px 7px 0 0;
-  border-bottom: 1px solid rgba(173, 194, 148, 0.3);
-}
-#clock.m {
-  border-radius: 0px;
-  border-bottom: 1px solid rgba(173, 194, 148, 0.3);
-}
-#clock.s {
-  border-radius: 0 0 7px 7px;
-}
-
-#clock.mn {
-  background: rgba(114, 142, 84, 0.4);
-  border-radius: 7px 7px 0 0;
-  border-bottom: 1px solid rgba(173, 194, 148, 0.3);
-
-  padding: 5px 1px;
-  margin-top: 2px;
-}
-#clock.yr {
-  background: rgba(114, 142, 84, 0.4);
-  border-radius: 0 0 7px 7px;
-
-  padding: 5px 1px;
-}
-
 #custom-notification {
-  background: rgba(48, 54, 43, 0.9);
-  padding: 7px 3px;
+  background: rgba(122, 131, 130, 0.9);
+  border-radius: 6px;
 }
 
 #tray {
-  background: rgba(56, 63, 48, 0.9);
-  padding: 7px 3px;
+  background: rgba(24, 24, 32, 0.9);
+  margin-right: 2px;
 }
 
-#backlight {
-  background: rgba(132, 145, 112, 0.9);
-  padding: 7px 3px;
+#custom-temp {
+  background: rgba(185, 141, 123, 0.9);
+  padding: 2px 9px;
 }
 
 #pulseaudio {
-  background: rgba(113, 130, 96, 0.9);
-  padding: 7px 3px;
+  background: linear-gradient(
+    to right,
+    rgba(34, 50, 73, 0.5),
+    rgba(45, 79, 103, 0.5)
+  );
+  border-radius: 6px 0 0 6px;
 }
 
 #memory {
-  background: rgba(88, 102, 74, 0.9);
-  padding: 7px 3px;
+  background: linear-gradient(
+    to right,
+    rgba(45, 79, 103, 0.5),
+    rgba(101, 133, 148, 0.5)
+  );
+  border-radius: 0;
 }
 
 #cpu {
-  background: rgba(68, 77, 56, 0.9);
-  padding: 7px 3px;
+  background: linear-gradient(
+    to left,
+    rgba(45, 79, 103, 0.5),
+    rgba(101, 133, 148, 0.5)
+  );
+  border-radius: 0;
 }
 
 #battery {
-  background: rgba(56, 63, 48, 0.9);
-  padding: 5px 1px;
-}
-#battery.warning {
-  background: rgba(88, 112, 64, 0.5);
-}
-#battery.critical {
-  background: rgba(88, 112, 64, 0.2);
+  background: linear-gradient(
+    to left,
+    rgba(34, 50, 73, 0.5),
+    rgba(45, 79, 103, 0.5)
+  );
+  border-radius: 0 6px 6px 0;
 }
 
 #custom-power {
-  background: rgba(48, 54, 43, 0.9);
-  margin-bottom: 4px;
+  background: rgba(196, 116, 110, 0.9);
+  padding: 3px 11px 4px 9px;
+  margin-left: 2px;
 }

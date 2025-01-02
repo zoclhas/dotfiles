@@ -1,16 +1,16 @@
-@define-color cc-bg rgba(26, 30, 21, 0.8);
-@define-color noti-border-color #849170;
-@define-color noti-bg rgba(26, 30, 21, 0.8);
-@define-color noti-bg-opaque rgba(26, 30, 21, 1);
-@define-color noti-bg-darker rgba(48, 54, 43, 0.5);
-@define-color noti-bg-hover rgba(56, 63, 48, 0.7);
-@define-color noti-bg-hover-opaque rgba(56, 63, 48, 0.8);
+@define-color cc-bg rgba(26, 26, 34, 0.9);
+@define-color noti-border-color #9cabca;
+@define-color noti-bg rgba(26, 26, 34, 0.9);
+@define-color noti-bg-opaque rgba(26, 26, 34, 1);
+@define-color noti-bg-darker rgba(24, 24, 32, 0.9);
+@define-color noti-bg-hover rgba(54, 54, 70, 0.9);
+@define-color noti-bg-hover-opaque rgba(54, 54, 70, 1);
 @define-color noti-bg-focus rgba(32, 32, 32, 0.8);
 @define-color noti-close-bg rgba(255, 255, 255, 0.1);
 @define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
 @define-color text-color rgb(255, 255, 255);
 @define-color text-color-disabled rgb(150, 150, 150);
-@define-color bg-selected rgba(113, 130, 96, 0.9);
+@define-color bg-selected rgba(84, 84, 109, 0.9);
 
 .notification-row {
   outline: none;

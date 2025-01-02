@@ -5,7 +5,7 @@
  *******************************************************************************/
 
 * {
-  border: #849170;
+  border: #9cabca;
 }
 
 
@@ -28,9 +28,9 @@ element selected {
 window {
     location:       center;
     width:          480;
-    border-radius:  9px;
+    border-radius:  6px;
     
-    background-color:   rgba(26, 30, 21, 0.8);
+    background-color:   rgba(26, 26, 34, 0.9);
     border-color:       @border;
     border:         1px;
 
@@ -41,10 +41,10 @@ mainbox {
 }
 
 inputbar {
-    background-color:   rgba(48, 54, 43, 0.9);
+    background-color:   rgba(54, 54, 70, 0.9);
     border-color:       @border;
     border:         1px;
-    border-radius:  5;
+    border-radius:  4;
 
     padding:    4px 8px;
     spacing:    8px;
@@ -66,7 +66,7 @@ message {
     margin:             12px 0 0;
     border-radius:      16px;
     border-color:       @border;
-    background-color:   rgba(48, 54, 43, 0.5);
+    background-color:   rgba(110, 145, 95, 0.5);
 }
 
 textbox {
@@ -82,20 +82,20 @@ listview {
 
 
     // fixed-height: false;
-    border-radius:  5;
+    border-radius:  4;
 }
 
 element {
-    background-color:   rgba(48, 54, 43, 0.4);
+    background-color:   rgba(160, 156, 172, 0.1);
     padding:        8px 16px;
     spacing:        8px;
     margin: 0 0 4px 0;
     text-color: #fff;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 element selected normal, element selected active {
-    background-color:   rgba(48, 54, 43, 0.1);
+    background-color:   rgba(160, 156, 172, 0.2);
     border-color:       @border;
     border:         1px;
 }
