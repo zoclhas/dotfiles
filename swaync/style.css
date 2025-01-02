@@ -31,7 +31,7 @@
   color: @text-color;
   text-shadow: none;
   padding: 0;
-  border-radius: 7px;
+  border-radius: 4px;
   margin-top: 5px;
   margin-right: 5px;
   box-shadow: none;
@@ -49,8 +49,8 @@
 
 .notification-row .notification-background .notification {
   /* The actual notification */
-  border-radius: 9px;
-  border: 2px solid @noti-border-color;
+  border-radius: 6px;
+  border: 1px solid @noti-border-color;
   padding: 0;
   transition: background 0.15s ease-in-out;
   background: @noti-bg;
@@ -99,7 +99,7 @@
   .notification
   .notification-default-action {
   /* The large action that also displays the notification summary and body */
-  border-radius: 9px;
+  border-radius: 4px;
 }
 
 .notification-row
@@ -117,7 +117,7 @@
   .notification-default-action
   .notification-content {
   background: transparent;
-  border-radius: 9px;
+  border-radius: 4px;
   padding: 2px;
 }
 
@@ -220,7 +220,7 @@
   /* The "extra" optional bottom notification image */
   margin-top: 4px;
   background-color: white;
-  border-radius: 9px;
+  border-radius: 4px;
   -gtk-icon-effect: none;
 }
 
@@ -244,8 +244,8 @@
   background: @noti-bg-darker;
   color: @text-color;
   caret-color: @text-color;
-  border: 2px solid @noti-border-color;
-  border-radius: 9px;
+  border: 1px solid @noti-border-color;
+  border-radius: 4px;
 }
 
 .notification-row
@@ -257,8 +257,8 @@
   .inline-reply-button {
   margin-left: 4px;
   background: @noti-bg;
-  border: 2px solid @noti-border-color;
-  border-radius: 9px;
+  border: 1px solid @noti-border-color;
+  border-radius: 4px;
   color: @text-color;
 }
 
@@ -271,7 +271,7 @@
   .inline-reply-button:disabled {
   background: initial;
   color: @text-color-disabled;
-  border: 2px solid @noti-border-color;
+  border: 1px solid @noti-border-color;
   border-color: transparent;
 }
 
@@ -361,9 +361,9 @@
   /* The Control Center which contains the old notifications + widgets */
   background: @cc-bg;
   color: @text-color;
-  border-radius: 9px;
-  border: 2px solid @noti-border-color;
-  margin: 10px;
+  border-radius: 4px;
+  border: 1px solid @noti-border-color;
+  margin: 4px;
 }
 
 .control-center .control-center-list-placeholder {
@@ -421,9 +421,9 @@
   color: @text-color;
   text-shadow: none;
   background: @noti-bg;
-  border: 2px solid @noti-border-color;
+  border: 1px solid @noti-border-color;
   box-shadow: none;
-  border-radius: 9px;
+  border-radius: 4px;
 }
 
 .widget-title > button:hover {
@@ -439,9 +439,9 @@
 
 .widget-dnd > switch {
   font-size: initial;
-  border-radius: 9px;
+  border-radius: 4px;
   background: @noti-bg;
-  border: 2px solid @noti-border-color;
+  border: 1px solid @noti-border-color;
   box-shadow: none;
 }
 
@@ -451,7 +451,7 @@
 
 .widget-dnd > switch slider {
   background: @noti-bg-hover;
-  border-radius: 9px;
+  border-radius: 4px;
 }
 
 /* Label widget */
@@ -475,7 +475,7 @@
   padding: 16px;
   margin: 16px 20px;
   background-color: @mpris-album-art-overlay;
-  border-radius: 9px;
+  border-radius: 4px;
   box-shadow: 0 2px 16px 2px rgba(0, 0, 0, 0.05);
 }
 
@@ -485,7 +485,7 @@
 }
 
 .widget-mpris .widget-mpris-player .widget-mpris-album-art {
-  border-radius: 9px;
+  border-radius: 4px;
   box-shadow: 0 2px 16px 2px rgba(0, 0, 0, 0.05);
 }
 
@@ -518,13 +518,13 @@
 .widget-buttons-grid {
   padding: 8px;
   margin: 8px;
-  border-radius: 9px;
+  border-radius: 4px;
   background-color: @noti-bg;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button {
   background: @noti-bg;
-  border-radius: 9px;
+  border-radius: 4px;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
@@ -596,7 +596,7 @@
   color: @text-color;
   text-shadow: none;
   background: @noti-bg;
-  border: 2px solid @noti-border-color;
+  border: 1px solid @noti-border-color;
   box-shadow: none;
   border-radius: 12px;
 }
@@ -634,5 +634,5 @@ trough highlight {
 
 slider {
   border: 1px solid @noti-border-color;
-  border-radius: 9px;
+  border-radius: 4px;
 }

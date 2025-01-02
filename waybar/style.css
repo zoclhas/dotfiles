@@ -84,6 +84,7 @@ tooltip label {
 
 #custom-notification {
   background: rgba(122, 131, 130, 0.9);
+  padding: 3px 11px 4px 9px;
   border-radius: 6px;
 }
 
