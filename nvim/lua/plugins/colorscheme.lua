@@ -3,74 +3,40 @@ return {
     "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
+    opts = {},
     config = function()
-      local function ternary(cond, T, F)
-        if cond then
-          return T
-        else
-          return F
-        end
-      end
-
       require("kanagawa").setup({
         compile = true,
+        undercurl = true,
         undercurls = true,
-
-        -- transparent = ternary(vim.g.neovide, false, true),
-        transparent = false,
         terminalColors = true,
-
+        dimInactive = true,
         colors = {
           theme = {
             all = {
               ui = {
-                bg_gutter = "none",
+                bg_gutter = "#16161D",
               },
             },
           },
         },
-
+        commentStyle = { italic = true },
+        functionStyle = {},
+        keywordStyle = { italic = true },
+        statementStyle = { bold = true },
+        typeStyle = {},
+        transparent = false, -- do not set background color
         overrides = function(colors)
-          local theme = colors.theme
-
           return {
-            NormalFloat = { bg = "none" },
-            FloatBorder = { bg = "none" },
-            FloatTitle = { bg = "none" },
+            heading1 = { fg = colors.palette.peachred, bold = true },
+            heading2 = { fg = colors.palette.wavered, bold = true },
+            heading3 = { fg = colors.palette.sakurapink, bold = true },
+            heading4 = { fg = colors.palette.carpyellow, bold = true },
+            headingrest = { fg = colors.palette.boatyellow2, bold = true },
 
-            NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
-            LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-            MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-
-            TelescopeTitle = { fg = theme.ui.special, bold = true },
-            TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-            TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-            TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
-            TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-            TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-            TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
-
-            NeoTreeNormal = { bg = theme.ui.bg_dim },
-            NeoTreeNormalNC = { bg = theme.ui.bg_dim },
-
-            -- LineNrAbove = { bg = theme.ui.bg_dim },
-            LineNr = { bg = theme.ui.bg_dim },
-            -- LineNrBelow = { bg = theme.ui.bg_dim },
-
-            Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
-            PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
-            PmenuSbar = { bg = theme.ui.bg_m1 },
-            PmenuThumb = { bg = theme.ui.bg_p2 },
-
-            Heading1 = { fg = colors.palette.peachRed, bold = true },
-            Heading2 = { fg = colors.palette.waveRed, bold = true },
-            Heading3 = { fg = colors.palette.sakuraPink, bold = true },
-            Heading4 = { fg = colors.palette.carpYellow, bold = true },
-            HeadingRest = { fg = colors.palette.boatYellow2, bold = true },
-
-            Bold = { fg = colors.palette.boatYellow2, bold = true },
-            Italics = { fg = colors.palette.sakuraPink, italic = true },
-            Quotes = { fg = colors.palette.dragonBlue, italic = true },
+            bold = { fg = colors.palette.boatyellow2, bold = true },
+            italics = { fg = colors.palette.sakurapink, italic = true },
+            quotes = { fg = colors.palette.dragonblue, italic = true },
 
             ["@string.regexp"] = { link = "@string.regex" },
             ["@variable.parameter"] = { link = "@parameter" },
@@ -79,38 +45,42 @@ return {
             ["@markup.strong"] = { link = "@text.strong", bold = true },
             ["@markup.italic"] = { link = "@text.emphasis", italic = true },
             ["@markup.underline"] = { link = "@text.underline" },
-            ["@markup.heading"] = { link = "Function" },
+            ["@markup.heading"] = { link = "function" },
             ["@markup.raw"] = { link = "@text.literal" },
             ["@markup.quote"] = { link = "@text.quote" },
-            ["@markup.math"] = { link = "Constant" },
+            ["@markup.math"] = { link = "constant" },
             ["@markup.environment"] = { link = "@text.environment" },
             ["@markup.environment.name"] = { link = "@text.environment.name" },
-            ["@markup.link.url"] = { link = "Special" },
-            ["@markup.link.label"] = { link = "Identifier" },
+            ["@markup.link.url"] = { link = "special" },
+            ["@markup.link.label"] = { link = "identifier" },
             ["@comment.note"] = { link = "@text.note" },
             ["@comment.warning"] = { link = "@text.warning" },
             ["@comment.danger"] = { link = "@text.danger" },
             ["@diff.plus"] = { link = "@text.diff.add" },
             ["@diff.minus"] = { link = "@text.diff.delete" },
-            ["@markup.link.url.markdown_inline"] = { link = "Special" }, -- (url)
-            ["@markup.link.label.markdown_inline"] = { link = "WarningMsg" }, -- [label]
-            ["@markup.italic.markdown_inline"] = { link = "Italics" }, -- *italic*
-            ["@markup.strong.markdown_inline"] = { link = "Bold" }, -- **strong**
-            ["@markup.raw.markdown_inline"] = { link = "String" }, -- `code`
-            ["@markup.list.markdown"] = { link = "Function" }, -- + list
-            ["@markup.quote.markdown"] = { link = "Quotes" }, -- > blockcode
-            ["@markup.heading.1.markdown"] = { link = "Heading1" },
-            ["@markup.heading.2.markdown"] = { link = "Heading2" },
-            ["@markup.heading.3.markdown"] = { link = "Heading3" },
-            ["@markup.heading.4.markdown"] = { link = "Heading4" },
-            ["@markup.heading.5.markdown"] = { link = "HeadingRest" },
-            ["@markup.heading.6.markdown"] = { link = "HeadingRest" },
+            ["@markup.link.url.markdown_inline"] = { link = "special" }, -- (url)
+            ["@markup.link.label.markdown_inline"] = { link = "warningmsg" }, -- [label]
+            ["@markup.italic.markdown_inline"] = { link = "italics" }, -- *italic*
+            ["@markup.strong.markdown_inline"] = { link = "bold" }, -- **strong**
+            ["@markup.raw.markdown_inline"] = { link = "string" }, -- `code`
+            ["@markup.list.markdown"] = { link = "function" }, -- + list
+            ["@markup.quote.markdown"] = { link = "quotes" }, -- > blockcode
+            ["@markup.heading.1.markdown"] = { link = "heading1" },
+            ["@markup.heading.2.markdown"] = { link = "heading2" },
+            ["@markup.heading.3.markdown"] = { link = "heading3" },
+            ["@markup.heading.4.markdown"] = { link = "heading4" },
+            ["@markup.heading.5.markdown"] = { link = "headingrest" },
+            ["@markup.heading.6.markdown"] = { link = "headingrest" },
           }
         end,
+        theme = "wave", -- Load "wave" theme when 'background' option is not set
+        background = { -- map the value of 'background' option to a theme
+          dark = "wave", -- try "dragon" !
+          light = "lotus",
+        },
       })
 
-      vim.cmd.colorscheme("kanagawa-dragon")
-      vim.cmd.hi("Comment gui=none")
+      vim.cmd.colorscheme("kanagawa")
     end,
   },
 
@@ -142,13 +112,22 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 1000,
     config = function()
       require("catppuccin").setup({
         flavour = "mocha",
       })
     end,
   },
-}
 
--- return
+  {
+    "slugbyte/lackluster.nvim",
+    lazy = false,
+  },
+
+  {
+    "ficcdaf/ashen.nvim",
+    lazy = false,
+  },
+
+  { "ilof2/posterpole.nvim" },
+}
