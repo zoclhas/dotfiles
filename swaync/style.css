@@ -404,6 +404,10 @@
   background: transparent;
 }
 
+.floating-notifications .vertical {
+  padding: 2px;
+}
+
 .floating-notifications .notification {
   box-shadow: none;
 }
