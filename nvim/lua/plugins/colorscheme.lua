@@ -130,4 +130,14 @@ return {
   },
 
   { "ilof2/posterpole.nvim" },
+
+  {
+    "sam4llis/nvim-tundra",
+    opts = {
+      transparent_background = true,
+      dim_inactive_windows = {
+        enabled = true,
+      },
+    },
+  },
 }

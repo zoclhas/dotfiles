@@ -21,3 +21,6 @@ vim.keymap.set(
   "<ESC>F[yi[f]i, <ESC>pb<S-~>hiset<ESC><S-a> = useState()<ESC>F(a",
   { desc = "Tiny snippet for useEffect" }
 )
+
+vim.keymap.del("n", "<leader>l")
+vim.keymap.set("n", "<leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })

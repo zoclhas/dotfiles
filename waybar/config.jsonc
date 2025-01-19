@@ -1,17 +1,20 @@
 // -*- mode: jsonc -*-
 {
   "layer": "top",
-  "position": "bottom",
-  "margin": 0,
+  "position": "top",
+  //"margin": 4,
 
-  "modules-left": [
-    "custom/notification",
-    "clock#d",
-    "clock#t",
-    "hyprland/workspaces",
+  "modules-left": ["custom/notification", "hyprland/workspaces"],
+  "modules-center": ["clock#d", "clock#t"],
+  "modules-right": [
+    "pulseaudio",
+    "memory",
+    "cpu",
+    "battery",
+    "tray",
+    "custom/temp",
+    "custom/power",
   ],
-  "modules-center": ["pulseaudio", "memory", "cpu", "battery"],
-  "modules-right": ["tray", "custom/temp", "custom/power"],
   // Modules
   "hyprland/workspaces": {
     "format": "{icon}",

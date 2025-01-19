@@ -166,6 +166,13 @@ return {
     end,
   },
 
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      vim.diagnostic.config({ virtual_lines = false })
+    end,
+  },
+
   -- {
   --   "shellRaining/hlchunk.nvim",
   --   event = { "BufReadPre", "BufNewFile" },
