@@ -27,7 +27,7 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons", "arkav/lualine-lsp-progress" },
     config = function()
-      local theme = require("kanagawa.colors").setup().theme
+      local theme = require("kanso.colors").setup().theme
 
       require("lualine").setup({
         options = {

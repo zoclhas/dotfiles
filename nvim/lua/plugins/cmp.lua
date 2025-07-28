@@ -71,12 +71,12 @@ return {
       -- experimental signature help support
       -- signature = { enabled = true },
 
-      sources = {
+      cmdline = {
         -- adding any nvim-cmp sources here will enable them
         -- with blink.compat
         compat = {},
         default = { "lsp", "path", "snippets", "buffer" },
-        cmdline = {},
+        sources = {},
       },
 
       keymap = {

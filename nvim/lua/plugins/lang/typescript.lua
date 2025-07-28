@@ -231,4 +231,10 @@ return {
       })
     end,
   },
+
+  {
+    "windwp/nvim-ts-autotag",
+    event = "LazyFile",
+    opts = {},
+  },
 }
