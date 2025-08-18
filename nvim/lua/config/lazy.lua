@@ -19,8 +19,6 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import/override with your plugins
-    { import = "plugins" },
-    { import = "plugins/lang" },
 
     -- TypeScript
     { import = "lazyvim.plugins.extras.linting.eslint" },
@@ -30,6 +28,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.rust" },
 
     -- Misc
+    { import = "plugins" },
+    { import = "plugins/lang" },
     -- { import = "lazyvim.plugins.extras.ai.copilot" },
   },
   defaults = {

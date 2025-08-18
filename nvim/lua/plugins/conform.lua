@@ -14,6 +14,8 @@ return {
       yaml = { "prettier" },
       markdown = { "prettier" },
       graphql = { "prettier" },
+      c = { "clang_format" },
+      cpp = { "clang_format" },
     }
   end,
 }
