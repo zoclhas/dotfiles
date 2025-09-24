@@ -25,7 +25,7 @@ return {
         keywordStyle = { italic = true },
         statementStyle = { bold = true },
         typeStyle = {},
-        transparent = false, -- do not set background color
+        -- transparent = false, -- do not set background color
         overrides = function(colors)
           return {
             heading1 = { fg = colors.palette.peachred, bold = true },
@@ -80,7 +80,7 @@ return {
         },
       })
 
-      -- vim.cmd.colorscheme("kanagawa")
+      vim.cmd.colorscheme("kanagawa")
     end,
   },
 
@@ -111,7 +111,7 @@ return {
         keywordStyle = { italic = true },
         statementStyle = { bold = true },
         typeStyle = {},
-        transparent = false, -- do not set background color
+        transparent = true, -- do not set background color
         overrides = function(colors)
           return {
             heading1 = { fg = colors.palette.peachred, bold = true },
@@ -159,14 +159,18 @@ return {
             ["@markup.heading.6.markdown"] = { link = "headingrest" },
           }
         end,
-        theme = "zen", -- Load "zen" theme
-        background = { -- map the value of 'background' option to a theme
-          dark = "zen", -- try "ink" !
-          light = "pearl", -- try "mist" !
+        theme = "ink", -- Load "zen" theme
+        -- background = { -- map the value of 'background' option to a theme
+        --   dark = "ink", -- try "ink" !
+        --   light = "pearl", -- try "mist" !
+        -- },
+        foreground = {
+          dark = "saturated",
+          light = "saturated",
         },
       })
 
-      vim.cmd.colorscheme("kanso")
+      -- vim.cmd.colorscheme("kanso")
     end,
   },
 }

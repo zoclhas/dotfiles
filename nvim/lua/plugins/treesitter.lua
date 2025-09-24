@@ -5,7 +5,6 @@ return {
   lazy = vim.fn.argc(-1) == 0,
   init = function(plugin)
     require("lazy.core.loader").add_to_rtp(plugin)
-    require("nvim-treesitter.query_predicates")
   end,
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
   keys = {
@@ -50,6 +49,8 @@ return {
         "gosum",
         "vue",
         "glsl",
+        "tsx",
+        "vue",
       },
 
       incremental_selection = {
@@ -79,6 +80,5 @@ return {
     if type(opts.ensure_installed) == "table" then
       opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
     end
-    require("nvim-treesitter.configs").setup(opts)
   end,
 }

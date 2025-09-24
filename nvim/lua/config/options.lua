@@ -10,3 +10,5 @@ vim.filetype.add({
     [".*/hypr/.*%.conf"] = "hyprlang",
   },
 })
+
+vim.g.lazyvim_prettier_needs_config = false

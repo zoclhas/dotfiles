@@ -17,6 +17,7 @@ return {
             "typescript",
             "typescriptreact",
             "typescript.tsx",
+            "vue",
           },
           settings = {
             complete_function_calls = true,
@@ -167,11 +168,10 @@ return {
             vim.tbl_deep_extend("force", {}, opts.settings.typescript, opts.settings.javascript or {})
         end,
         tailwindcss = function(_, opts)
-          local tw = LazyVim.lsp.get_raw_config("tailwindcss")
           opts.filetypes = opts.filetypes or {}
 
           -- Add default filetypes
-          vim.list_extend(opts.filetypes, tw.default_config.filetypes)
+          vim.list_extend(opts.filetypes, vim.lsp.config.tailwindcss.filetypes)
 
           -- Remove excluded filetypes
           --- @param ft string
@@ -189,16 +189,13 @@ return {
               },
             },
           }
-
-          -- Add additional filetypes
-          vim.list_extend(opts.filetypes, opts.filetypes_include or {})
         end,
       },
     },
   },
 
   {
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
     opts = {
       file = {
         [".eslintrc.js"] = { glyph = "󰱺", hl = "MiniIconsYellow" },
