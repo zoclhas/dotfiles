@@ -1,34 +1,5 @@
 local augroups = {}
 
-augroups.yankpost = {
-  save_cursor_position = {
-    event = { "VimEnter", "CursorMoved" },
-    pattern = "*",
-    callback = function()
-      cursor_pos = vim.fn.getpos(".")
-    end,
-  },
-
-  highlight_yank = {
-    event = "TextYankPost",
-    pattern = "*",
-    callback = function()
-      vim.highlight.on_yank({ higroup = "IncSearch", timeout = 150, on_visual = true })
-    end,
-  },
-
-  yank_restore_cursor = {
-    event = "TextYankPost",
-    pattern = "*",
-    callback = function()
-      local cursor = vim.fn.getpos(".")
-      if vim.v.event.operator == "y" then
-        vim.fn.setpos(".", cursor_pos)
-      end
-    end,
-  },
-}
-
 augroups.insert_mode_relative_num = {
   enter = {
     event = "InsertEnter",

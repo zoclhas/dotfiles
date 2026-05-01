@@ -1,24 +1,29 @@
-palette = 0=#1F1F28
-palette = 1=#E46A78
-palette = 2=#98BC6D
-palette = 3=#E5C283
-palette = 4=#7EB3C9
-palette = 5=#957FB8
-palette = 6=#7EB3C9
-palette = 7=#DDD8BB
-palette = 8=#3C3C51
-palette = 9=#EC818C
-palette = 10=#9EC967
-palette = 11=#F1C982
-palette = 12=#7BC2DF
-palette = 13=#A98FD2
-palette = 14=#7BC2DF
-palette = 15=#A8A48D
-background = #1F1F28
-foreground = #DDD8BB
-cursor-color = #E6E0C2
-selection-background = #49473E
-selection-foreground = #DDD8BB
+palette = 0=#090E13
+palette = 1=#c4746e
+palette = 2=#8a9a7b
+palette = 3=#c4b28a
+palette = 4=#8ba4b0
+palette = 5=#a292a3
+palette = 6=#8ea4a2
+palette = 7=#a4a7a4
+palette = 8=#5C6066
+palette = 9=#e46876
+palette = 10=#87a987
+palette = 11=#e6c384
+palette = 12=#7fb4ca
+palette = 13=#938aa9
+palette = 14=#7aa89f
+palette = 15=#c5c9c7
+
+background = #090E13
+foreground = #c5c9c7
+cursor-color = #c5c9c7
+selection-background = #22262D
+selection-foreground = #c5c9c7
+
+font-family = Lilex Nerd Font
+
+shell-integration = zsh
 
 window-decoration = false
 gtk-titlebar = false
@@ -32,3 +37,8 @@ keybind = super+ctrl+shift+k=resize_split:up,10
 keybind = super+ctrl+shift+h=resize_split:left,10
 keybind = super+ctrl+shift+j=resize_split:down,10
 keybind = super+ctrl+shift+l=resize_split:right,10
+
+# theme = Apple System Colors Light 
+
+
+custom-shader = shaders/cursor_tail.glsl

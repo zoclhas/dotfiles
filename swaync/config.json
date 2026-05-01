@@ -1,6 +1,6 @@
 {
   "$schema": "/etc/xdg/swaync/configSchema.json",
-  "positionY": "bottom",
+  "positionY": "top",
   "widgets": [
     "title",
     "dnd",
@@ -51,7 +51,7 @@
         },
         {
           "label": "󰌾",
-          "command": "swaylock-corrupter"
+          "command": "hyprlock"
         },
         {
           "label": "󰍃",

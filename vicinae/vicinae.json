@@ -1,0 +1,24 @@
+{
+    "closeOnFocusLoss": true,
+    "considerPreedit": false,
+    "faviconService": "google",
+    "font": {
+        "size": 10
+    },
+    "keybinding": "default",
+    "keybinds": {
+    },
+    "popToRootOnClose": true,
+    "rootSearch": {
+        "searchFiles": true
+    },
+    "theme": {
+        "iconTheme": "WhiteSur-green-dark",
+        "name": "kanagawa"
+    },
+    "window": {
+        "csd": true,
+        "opacity": 0.95,
+        "rounding": 10
+    }
+}

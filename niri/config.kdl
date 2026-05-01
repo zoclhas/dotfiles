@@ -1,0 +1,296 @@
+// Startup
+spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist store "
+
+spawn-at-startup "waybar"
+spawn-at-startup "hypridle"
+
+spawn-at-startup "nm-applet --indicator"
+spawn-at-startup "blueman-applet"
+
+spawn-at-startup "swaync"
+spawn-at-startup "swayosd-server"
+
+spawn-sh-at-startup "easyeffects --gapplication-service"
+// spawn-sh-at-startup "vicinae server"
+spawn-at-startup "awww-daemon"
+spawn-at-startup "kdeconnect-indicator"
+
+
+spawn-sh-at-startup "/usr/lib/xdg-desktop-portal-hyprland"
+spawn-sh-at-startup "/usr/lib/xdg-desktop-portal"
+spawn-sh-at-startup "gnome-keyring-daemon --start --components=secrets"
+spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 || /usr/libexec/polkit-kde-authentication-agent-1  || /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 || /usr/libexec/polkit-gnome-authentication-agent-1"
+spawn-sh-at-startup "systemctl --user start hyprpolkitagent"
+
+spawn-at-startup "rog-control-center"
+
+prefer-no-csd
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+clipboard {
+    disable-primary
+}
+
+overview {
+  backdrop-color "#386184"
+}
+
+layout {
+  gaps 2
+  
+  background-color "#00000000"
+  // center-focused-column "on-overflow"
+
+  focus-ring {
+    width 2
+    active-gradient from="#DCA561" to="#98BB6C" angle=275
+    // inactive-color "#505050"
+    urgent-color "#9b0000"
+  }
+
+  shadow {
+    off
+
+    softness 40
+    spread 5
+    offset x=0 y=5
+    draw-behind-window true
+    color "#00000064"
+  }
+
+  tab-indicator {
+    width 8
+    gap 4
+    gaps-between-tabs 4
+
+    active-color "#ff5900"
+    inactive-color "#3b281e"
+
+    position "left"
+    place-within-column
+    corner-radius 0 // 12
+  }
+
+  struts {
+    // left 10
+    // right 10
+    // top 10
+    // bottom 10
+  }
+}
+
+blur {
+  passes 0
+  offset 2
+  noise 0.15
+  saturation 1.5
+}
+
+input {
+  keyboard {
+    xkb {
+      options "ctrl:nocaps"
+    }
+  }
+
+  touchpad {
+    tap
+    natural-scroll
+    middle-emulation
+  }
+
+  disable-power-key-handling
+  warp-mouse-to-focus
+}
+
+output "eDP-1" {
+  mode "1920x1080@144.000"
+  variable-refresh-rate on-demand=true
+}
+
+binds {
+  Mod+Shift+M { quit skip-confirmation=true; }
+  Mod+Q { close-window; }
+  Alt+F4 { close-window; }
+  Mod+O { toggle-overview; }
+  Mod+Shift+P { power-off-monitors; }
+
+  // Windows
+  Mod+H { focus-column-left; }
+  Mod+J { focus-window-down; }
+  Mod+K { focus-window-up; }
+  Mod+L { focus-column-right; }
+  Mod+Shift+H { move-column-left; }
+  Mod+Shift+J { move-window-down; }
+  Mod+Shift+K { move-window-up; }
+  Mod+Shift+L { move-column-right; }
+  Mod+Home { focus-column-first; }
+  Mod+End  { focus-column-last; }
+  Mod+BracketLeft { consume-or-expel-window-left; }
+  Mod+BracketRight { consume-or-expel-window-right; }
+  Mod+Comma { consume-window-into-column; }
+  Mod+Period { expel-window-from-column; }
+
+  Mod+Minus { set-column-width "-10%"; }
+  Mod+Equal { set-column-width "+10%"; }
+  Mod+Shift+Minus { set-window-height "-10%"; }
+  Mod+Shift+Equal { set-window-height "+10%"; }
+
+  Mod+W { toggle-column-tabbed-display; }
+  Mod+Ctrl+F { toggle-window-floating; }
+  Mod+Shift+F { maximize-column; }
+  Mod+Shift+V { expand-column-to-available-width; }
+  F11 { fullscreen-window; }
+
+  // Workspaces
+  Mod+1 { focus-workspace 1; }
+  Mod+2 { focus-workspace 2; }
+  Mod+3 { focus-workspace 3; }
+  Mod+4 { focus-workspace 4; }
+  Mod+5 { focus-workspace 5; }
+  Mod+6 { focus-workspace 6; }
+  Mod+7 { focus-workspace 7; }
+  Mod+8 { focus-workspace 8; }
+  Mod+9 { focus-workspace 9; }
+
+
+  Mod+Shift+1 { move-column-to-workspace 1; }
+  Mod+Shift+2 { move-column-to-workspace 2; }
+  Mod+Shift+3 { move-column-to-workspace 3; }
+  Mod+Shift+4 { move-column-to-workspace 4; }
+  Mod+Shift+5 { move-column-to-workspace 5; }
+  Mod+Shift+6 { move-column-to-workspace 6; }
+  Mod+Shift+7 { move-column-to-workspace 7; }
+  Mod+Shift+8 { move-column-to-workspace 8; }
+  Mod+Shift+9 { move-column-to-workspace 9; }
+
+  Mod+E { focus-workspace-down; }
+  Mod+R { focus-workspace-up; }
+  Mod+Shift+E { move-column-to-workspace-down; }
+  Mod+Shift+R { move-column-to-workspace-up; }
+
+
+  // Apps
+  Mod+T { spawn "kitty"; }
+  Mod+Shift+T { spawn "ghostty"; }
+  // Mod+F cooldown-ms=500 { spawn-sh "MOZ_ENABLE_WAYLAND=0 MOZ_USE_XINPUT2=1 firefox"; }
+  Mod+F cooldown-ms=500 { spawn "firefox"; }
+  Mod+N cooldown-ms=500 { spawn "nemo"; }
+  Mod+Shift+N cooldown-ms=500 { spawn "nautilus"; }
+  Mod+Ctrl+V cooldown-ms=500 { spawn-sh "vicinae server"; }
+  // Mod+D cooldown-ms=500 { spawn "discord" }
+
+  // Fn Keys
+  XF86AudioRaiseVolume { spawn-sh "swayosd-client --output-volume raise"; }
+  XF86AudioLowerVolume { spawn-sh "swayosd-client --output-volume lower"; }
+  XF86AudioMute { spawn-sh "swayosd-client --output-volume mute-toggle"; }
+  XF86AudioMicMute { spawn-sh "swayosd-client --input-volume mute-toggle"; }
+  XF86MonBrightnessUp { spawn-sh "swayosd-client --brightness +10"; }
+  XF86MonBrightnessDown { spawn-sh "swayosd-client --brightness -10"; }
+
+  // Screenshot
+  Mod+Shift+S { spawn-sh "XDG_CURRENT_DESKTOP=sway flameshot gui"; }
+  Print { screenshot show-pointer=false; }
+  Ctrl+Print { screenshot-screen show-pointer=false; }
+  Alt+Print { screenshot-window; }
+
+  // Misc
+  Ctrl+Alt+W { spawn "waybar"; }
+  Ctrl+Shift+Escape { spawn-sh "killall waybar"; }
+
+  Mod+Alt+L allow-inhibiting=false { spawn "hyprlock"; }
+  Ctrl+Alt+Delete allow-inhibiting=false { spawn "hyprlock"; }
+  Mod+P { spawn "wlogout"; }
+  Mod+U { spawn-sh "swaync-client -t -sw"; }
+
+  // Vicinae
+  Mod+Space repeat=false { spawn-sh "vicinae toggle"; }
+  Mod+V repeat=false { spawn-sh "vicinae vicinae://extensions/vicinae/clipboard/history"; }
+  Mod+Semicolon repeat=false { spawn-sh "vicinae vicinae://launch/core/search-emojis"; }
+  Mod+Apostrophe repeat=false { spawn-sh "vicinae vicinae://extensions/mmazzarolo/unicode-symbols/index"; }
+
+  Mod+Shift+C { spawn-sh "hyprpicker -a"; }
+}
+
+// Window Rules
+window-rule {
+  // geometry-corner-radius 12
+  // clip-to-geometry true
+  default-column-width { fixed 1200; }
+}
+
+layer-rule {
+  match namespace="vicinae"
+
+  background-effect {
+    xray false
+  }
+}
+
+layer-rule {
+  match namespace="awww-daemon"
+  place-within-backdrop true
+}
+
+window-rule {
+  match title="Firefox"
+  match title="figma-linux"
+  match app-id="affinity.exe"
+  match app-id="libreoffice-startcenter"
+  match app-id="libreoffice-impress"
+  match app-id="libreoffice-writer"
+  match app-id="/libreoffice/"
+
+  default-column-width { fixed 1916; }
+}
+
+window-rule {
+    match app-id="firefox$" title="- Gmail "
+
+    block-out-from "screencast"
+}
+
+window-rule {
+  match app-id="com.mitchellh.ghostty"
+  match app-id="kitty"
+  match app-id="dev.zed.Zed"
+  match app-id="Cider"
+
+  opacity 0.85
+  draw-border-with-background false
+  background-effect {
+//    blur true
+  }
+}
+
+window-rule {
+  match app-id="Cider"
+
+  default-column-width { fixed 480; }
+}
+
+// Picture-in-Picture - PiP
+window-rule {
+  match title="^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$"
+  match title="^Picture-in-Picture$"
+  open-floating true
+
+  default-column-width { fixed 480; }
+  default-window-height { fixed 270; }
+  default-floating-position x=12 y=12 relative-to="bottom-right"
+
+  geometry-corner-radius 0 // 10
+}
+
+debug {
+  render-drm-device "/dev/dri/renderD129"
+	honor-xdg-activation-with-invalid-serial
+}
+
+// animations {
+//   off
+// }

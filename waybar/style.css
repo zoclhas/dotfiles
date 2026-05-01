@@ -1,145 +1,90 @@
+@define-color bg #16161D;
+@define-color bg-rgb rgba(22, 22, 29, 0.85);
+@define-color border #E6C384;
+@define-color defBorder #54546D;
+@define-color defBg #2A2A37;
+
 * {
-  font-family: "JetbrainsMono Nerd Font";
-  font-weight: bold;
+  font-family: "Lilex Nerd Font";
+  font-size: 14px;
+  padding: 0;
   min-height: 0;
-  /* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
-  font-size: 97%;
-  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+  margin: 0;
+  text-shadow: none;
+  /* transition: none; */
+  box-shadow: none;
+  border: none;
+  /* background: transparent; */
 }
 
-window#waybar {
-  background: rgba(9, 14, 19, 0.9);
-  color: #ffffff;
-  border-radius: 12px;
-  border: 2px solid #8ba4b0;
-
-  /* transition-property: background-color; */
-  /* transition-duration: 0.5s; */
+#waybar {
+  background: rgba(22, 22, 29, 0.8);
+  border: 2px solid #a292a3;
 }
 
-window#waybar.hidden {
-  opacity: 0.2;
+#waybar > box {
+  background: transparent;
 }
 
-tooltip {
-  background: rgba(26, 26, 34, 1);
-  border: 1px solid #9cabca;
-  border-radius: 4px;
-}
-tooltip label {
-  color: #ffffff;
+.modules-left,
+.modules-center,
+.modules-right {
+  /* margin: 5px; */
+  /* padding: 0 6px; */
 }
 
-/*#workspaces {*/
-/*  padding-top: 2px;*/
-/*  padding-left: 2px;*/
-/*}*/
-#workspaces button {
-  padding: 4px;
-  margin-right: 2px;
-  color: rgba(84, 84, 109, 0.5);
-
-  /*background: rgba(24, 24, 32, 0.9);*/
-  /*border: 1px solid #727169;*/
-  /*border-radius: 6px;*/
-}
-
-#workspaces button:hover {
-  color: rgba(84, 84, 109, 0.7);
-}
-
-#workspaces button.active {
-  font-weight: 800;
-  color: #c7d7e0;
-}
-
-#clock.d,
-#clock.t {
-  padding: 0px 7px;
-  margin-top: 2px;
-
-  /*background: rgba(54, 54, 70, 0.9);*/
-  /*border: 1px solid rgba(26, 26, 34, 1);*/
-}
-#clock.d {
-  border-radius: 6px 0 0px 6px;
-}
-#clock.t {
-  border-radius: 0 6px 6px 0;
-  /*background: rgba(84, 84, 109, 0.9);*/
-  margin-right: 2px;
-}
-
-#tray,
-#bluetooth,
-#custom-power,
-#backlight,
-#pulseaudio,
-#memory,
-#cpu,
-#battery,
-#custom-notification,
-#custom-temp {
-  margin-top: 2px;
-  padding: 0px 6px;
-
-  border-radius: 7px;
-  color: #fff;
-}
-
-#custom-notification {
-  /*background: rgba(122, 131, 130, 0.9);*/
-  padding-left: 16px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+#workspaces {
+  padding: 0 0;
 }
 
 #tray {
-  /*background: rgba(24, 24, 32, 0.9);*/
-  margin-right: 2px;
+  /* background: @bg-rgb; */
+  /* padding: 8px 8px; */
+  /* border-radius: 12px; */
 }
 
-#custom-temp {
+#clock {
+  padding: 0 5px;
+  border-left: 2px solid #a292a3;
+  /* border-radius: 12px; */
 }
 
-#pulseaudio {
-  /*background: linear-gradient(*/
-  /*  to right,*/
-  /*  rgba(34, 50, 73, 0.5),*/
-  /*  rgba(45, 79, 103, 0.5)*/
-  /*);*/
-  border-radius: 6px 0 0 6px;
+#workspaces button {
+  /* color: @bg-rgb; */
+  /* margin: 0 5px; */
+  padding: 0px 5px;
+  border-right: 2px solid #a292a3;
+  border-radius: 0px;
 }
 
-#memory {
-  /*background: linear-gradient(*/
-  /*  to right,*/
-  /*  rgba(45, 79, 103, 0.5),*/
-  /*  rgba(101, 133, 148, 0.5)*/
-  /*);*/
-  border-radius: 0;
+#workspaces button:hover,
+#workspaces button.active {
+  color: #e46876;
+  /* background: #dcd7ba; */
 }
 
-#cpu {
-  /*background: linear-gradient(*/
-  /*  to left,*/
-  /*  rgba(45, 79, 103, 0.5),*/
-  /*  rgba(101, 133, 148, 0.5)*/
-  /*);*/
-  border-radius: 0;
+#mpris,
+#network,
+#disk,
+#cpu,
+#custom-cpu_temp,
+#backlight,
+#custom-memory,
+#pulseaudio,
+#battery,
+#custom-sensors,
+#custom-network,
+#custom-disk,
+#custom-uptime,
+#tray {
+  /* margin: 0 8px 0px 0px; */
+  padding: 2px 5px;
+  border-left: 2px solid #a292a3;
 }
 
-#battery {
-  /*background: linear-gradient(*/
-  /*  to left,*/
-  /*  rgba(34, 50, 73, 0.5),*/
-  /*  rgba(45, 79, 103, 0.5)*/
-  /*);*/
-  border-radius: 0 6px 6px 0;
-}
-
-#custom-power {
-  /*background: rgba(196, 116, 110, 0.9);*/
-  padding-right: 12px;
-  margin-left: 2px;
+#mpris {
+  /* border: 2px solid #ff9e3b; */
+  /* background: rgba(28, 73, 92, 0.95); */
+  color: white;
+  border-right: 2px solid #a292a3;
 }
